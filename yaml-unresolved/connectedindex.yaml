@@ -589,17 +589,17 @@ definitions:
         type: string
         example: jonathan.dee@email.com
   Relationship_FirmStep:
-    description: 'A relationship object for a FirmStep contact. Note: Fields marked with TBC require further clarification on usage'
+    description: 'A relationship object for a FirmStep contact. Used to provide a response object for a GET request. Note: Fields marked with TBC require further clarification on usage'
     required:
       - id
     type: object
     properties:
       cid:
-        description: "TBC"
+        description: "The UCRN of the contact the request relates to"
         type: string
         example:
       civicrm_relationship_type_id:
-        description: "The Relationship Type Identifier"
+        description: "The Relationship Type Identifier. Duplicate of relationship_type_id and will not be supported."
         type: integer
         example:
       contact_id_a:
