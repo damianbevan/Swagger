@@ -619,7 +619,7 @@ definitions:
         type: string
         example: Mr John Doe
       email:
-        description: "Email address of the contact TBC"
+        description: "Email address of the contact"
         type: string
         example: john.doe@email.com
       end_date:
@@ -696,11 +696,11 @@ definitions:
         enum:
           - firmstep
       contact_id_a:
-        description: "Target UCRN. TBC - Contact's Unique Customer Reference Number (UCRN) for target"
+        description: "Target UCRN. The UCRN of a contact that has the relationship with this contact."
         type: string
         example: 3004
       contact_id_b:
-        description: "Contact UCRN. TBC - Contact's Unique Customer Reference Number (UCRN) to form the relationship with"
+        description: "Contact UCRN. The UCRN of the contact the request/response relates to."
         type: string
         example: 3005
       relationship_type_id:
