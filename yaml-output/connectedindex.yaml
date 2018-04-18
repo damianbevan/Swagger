@@ -1,0 +1,947 @@
+---
+swagger: "2.0"
+info:
+  version: v1
+  title: States of jersey Connected Index API Definitions
+host: virtserver.swaggerhub.com
+basePath: /SoJ_FS1/SoJ_Firmstep/v1
+schemes:
+- https
+security:
+- BasicSecurity: []
+paths:
+  /api/v1/published/FirmstepAudit/:
+    get:
+      tags:
+      - FirmstepAudit
+      summary: Get a list of a contacts audit recordss
+      description: |-
+        Get a list of zero or more audit records. Responses are filtered for a given FirmStep contact's Unique Customer Reference Number (UCRN).
+        Some fields may have multiple values and are defined with a format of CSV. In these fields each of the values is concatenated together with a comma between them e.g. An account which has 3 addresses where the house numbers of each address have been changed to 23, 9 and 211 respectively, will be returned with the field address_house_to having value 23,9,211. If there isn't a value for one of 3 inputs then that section of the string is left blank. Using the example where the new value for the houses number at each address is 23 for the first address, the second address has not been updated and the last addresses new  house number is 211 the value for the field 23,9,211 will be 23,'',211. Note: Swagger will not display 2 adjacent commas and the example is therefore shown with 2 quote marks to separate the two.
+      operationId: FirmstepAudit_GetFirmStepAudit
+      consumes: []
+      produces:
+      - application/json
+      parameters:
+      - name: ucrn
+        in: query
+        description: The FirmStep contacts Unique Customer Reference Number (UCRN)
+        required: true
+        type: string
+      responses:
+        200:
+          description: An array containing zero or more audit records for the contact. If no records are found then an empty array will be returned.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Audit_FirmStep'
+        400:
+          description: The client request was incorrect or badly formed. Details of the error are returned within the ErrorResponse object.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        500:
+          description: Internal Server Error
+        default:
+          description: All other error conditions
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+  /api/v1/published/FirmstepRelationship:
+    get:
+      tags:
+      - FirmstepRelationship
+      summary: Get the relationships for a given contact identifier
+      description: Get the relationship assigned to a given FirmStep contact's Unique Customer Reference Number (UCRN). This API returns an array of zero or more relationship records for the contact.
+      operationId: FirmstepRelationship_GetFirmstepRelationship
+      consumes: []
+      produces:
+      - application/json
+      parameters:
+      - name: ucrn
+        in: query
+        description: The FirmStep contact's Unique Customer Reference Number (UCRN)
+        required: true
+        type: string
+      responses:
+        200:
+          description: An array containing zero or more relationship records for the contact. If no records are found then an empty array will be returned.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Relationship_FirmStep'
+        400:
+          description: The client request was incorrect or badly formed. Details of the error are returned within the ErrorResponse object.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        500:
+          description: Internal Server Error
+        default:
+          description: All other error conditions
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+    post:
+      tags:
+      - FirmstepRelationship
+      summary: Creates a Relationship between two contacts.
+      description: This is a stub method that does not perform any action at present other than to return a HTTP 403 status code.
+      operationId: FirmstepRelationship_PostFirmstepRelationship
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: firmstep_relationship_audit
+        description: ""
+        required: true
+        schema:
+          $ref: '#/definitions/Relationship_FirmStep_Audit'
+      responses:
+        403:
+          description: Forbidden
+  /api/v1/published/FirmstepRelationship/{relationship_id}:
+    delete:
+      tags:
+      - FirmstepRelationship
+      summary: Delete the relationship for the given relationship identifier
+      description: This is a stub method that does not perform any action at present other than return an HTTP 403 status.
+      operationId: FirmstepRelationship_DeleteFirmStepRelationship
+      consumes: []
+      produces:
+      - application/json
+      parameters:
+      - name: relationship_id
+        in: path
+        description: The relationship identifier
+        required: true
+        type: string
+      - name: customerName
+        in: query
+        description: Name of the contact being acted upon
+        required: false
+        type: string
+      - name: domainUser
+        in: query
+        description: Name of the user making the change
+        required: false
+        type: string
+      - name: ipAddress
+        in: query
+        description: IP Address of the user making the change
+        required: false
+        type: string
+      - name: source
+        in: query
+        description: Source system making the change
+        required: false
+        type: string
+      responses:
+        403:
+          description: Forbidden
+  /api/v1/published/FirmstepRelationshipType:
+    get:
+      tags:
+      - FirmstepRelationshipType
+      summary: Get a list of all relationship types
+      description: Get a list of all the active and inactive relationship types.
+      operationId: FirmstepRelationshipType_GetFirmstepRelationshipType
+      consumes: []
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: An array containing zero or more relationship type records. If no relationship type records are found then an empty array will be returned.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/RelationshipType_FirmStep'
+        500:
+          description: Internal Server Error
+        default:
+          description: All other error conditions
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+    post:
+      tags:
+      - FirmstepRelationshipType
+      summary: Creates a Relationship Type.
+      description: This method is used to create a new relationship type. When a relationship type is created the is_active field will default to 1. This is a stub method that does not perform any action at present other than to return a HTTP 403 status code
+      operationId: FirmstepRelationshipType_PostFirmstepRelationshipType
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: firmstep_relationshiptype_audit
+        description: ""
+        required: true
+        schema:
+          $ref: '#/definitions/RelationshipType_FirmStep_Audit'
+      responses:
+        403:
+          description: Forbidden
+  /api/v1/published/FirmstepRelationshipType/{ID}:
+    put:
+      tags:
+      - FirmstepRelationshipType
+      summary: Update an existing the relationship type for a given relationship identifier
+      description: This method is to be used to update a relationship type. It can be used to activate and deactivate relationship types by setting the is_active flag to 1 or 0 respectively. This is a stub method that does not perform any action at present other than return an HTTP 403 status
+      operationId: FirmstepRelationshipType_DeleteFirmStepRelationshipType
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: ID
+        in: path
+        description: The FirmStep contacts Unique Customer Reference Number (UCRN)
+        required: true
+        type: string
+      - in: body
+        name: firmstep_relationshiptype_audit
+        description: ""
+        required: true
+        schema:
+          $ref: '#/definitions/RelationshipType_FirmStep_Audit'
+      responses:
+        403:
+          description: Forbidden
+securityDefinitions:
+  BasicSecurity:
+    description: Basic security for use with service accounts
+    type: basic
+definitions:
+  Audit_FirmStep:
+    type: object
+    required:
+    - log_date
+    properties:
+      log_date:
+        type: string
+        format: date-time
+        example: 2017-12-25 12:00:00
+        description: The date and time of the action that created the audit record. Date format is ISO 8601 (YYYY-MM-DD hh:mm:ss)
+      log_user_id:
+        type: string
+        example: "1234567890"
+        description: The UCRN of the user that performed the action
+      who_name:
+        type: string
+        example: Jane Doe
+        description: The name of the person that performed the action
+      whom_name:
+        type: string
+        example: John Doe
+        description: The name of the person the action was performed on
+      birth_date_from:
+        type: string
+        format: date
+        example: 1980-12-25
+        description: The original date of birth before the change. Date format is ISO 8601 (YYYY-MM-DD)
+      birth_date_to:
+        type: string
+        format: date
+        example: 1980-11-24
+        description: The new date of birth after the change. Date format is ISO 8601 (YYYY-MM-DD)
+      gender_id_from:
+        type: integer
+        example: 1
+        description: The original gender ID for the contact. Possible values are 1 for Female and 2 for Male. Gender IDs are defined within the CiviVars at https://firmstep-kb.cms-live.firmstep.com/third-party-integrations/integrations-3rd-party/ci-get-civi-vars
+      gender_id_to:
+        type: integer
+        example: 2
+        description: The new gender ID for the contact. Possible values are 1 for Female and 2 for Male. Gender IDs are defined within the CiviVars at https://firmstep-kb.cms-live.firmstep.com/third-party-integrations/integrations-3rd-party/ci-get-civi-vars
+      contact_type_from:
+        type: string
+        example: Individual
+        description: The original type for the contact. Possible values are Individual or Business
+        enum:
+        - Individual
+        - Business
+      contact_type_to:
+        type: string
+        example: Business
+        description: The new type for the contact. Possible values are Individual or Business
+        enum:
+        - Individual
+        - Business
+      preferred_language_from:
+        type: string
+        example: en_GB
+        description: The original preferred language code for the contact. Language definitions are available from https://firmstep-kb.cms-live.firmstep.com/third-party-integrations/integrations-3rd-party/ci-language-and-country
+      preferred_language_to:
+        type: string
+        example: en_US
+        description: The new preferred language code for the contact. Language definitions are available from https://firmstep-kb.cms-live.firmstep.com/third-party-integrations/integrations-3rd-party/ci-language-and-country
+      preferred_contact_method_from:
+        type: integer
+        example: 1
+        description: The original preferred contact method ID for the contact. Possible values are 1, 2, 3 or 4 for phone, mobile, email and post respectively. Contact methods are defined within the CiviVars at https://firmstep-kb.cms-live.firmstep.com/third-party-integrations/integrations-3rd-party/ci-get-civi-vars
+      preferred_contact_method_to:
+        type: integer
+        example: 2
+        description: The new preferred contact method ID for the contact. Possible values are 1, 2, 3 or 4 for phone, mobile, email and post respectively. Contact methods are defined within the CiviVars at https://firmstep-kb.cms-live.firmstep.com/third-party-integrations/integrations-3rd-party/ci-get-civi-vars
+      ss_account_from:
+        type: string
+        example: "false"
+        description: The original flag to indicate whether the contact had a self account
+      ss_account_to:
+        type: string
+        example: "true"
+        description: The new flag to indicate whether the contact has a self account
+      consent_to_share__from:
+        type: string
+        example: "0"
+        description: The original consent to share flag. Possible values are 0 or 1 for no consent and consent given respectively
+        enum:
+        - "0"
+        - "1"
+      consent_to_share__to:
+        type: string
+        example: "1"
+        description: The new consent to share flag. Possible values are 0 or 1 for no consent and consent given respectively
+        enum:
+        - "0"
+        - "1"
+      status_from:
+        type: string
+        example: New
+        description: The original status of the contact. Possible values are New, Approved, Changed, Deceased and Historic. Status are defined within the CiviVars at https://firmstep-kb.cms-live.firmstep.com/third-party-integrations/integrations-3rd-party/ci-get-civi-vars
+        enum:
+        - New
+        - Aproved
+        - Changed
+        - Deceased
+        - Historic
+      status_to:
+        type: string
+        example: Approved
+        description: The new status of the contact. Possible values are New, Approved, Changed, Deceased and Historic. Status are defined within the CiviVars at https://firmstep-kb.cms-live.firmstep.com/third-party-integrations/integrations-3rd-party/ci-get-civi-vars
+        enum:
+        - New
+        - Aproved
+        - Changed
+        - Deceased
+        - Historic
+      is_deceased_from:
+        type: integer
+        example: 0
+        description: The original flag to indicate whether the contact is deceased. Possible values are 0 or 1 for contact is not or is deceased respectively
+      is_deceased_to:
+        type: integer
+        example: 1
+        description: The new flag to indicate whether the contact is deceased. Possible values are 0 or 1 for contact is not or is deceased respectively
+      is_deleted_from:
+        type: integer
+        example: 0
+        description: The original flag to indicate whether the contact is deleted. Possible values are 0 or 1 for contact is not or is deleted respectively
+      is_deleted_to:
+        type: integer
+        example: 0
+        description: The new flag to indicate whether the contact is deleted. Possible values are 0 or 1 for contact is not or is deleted respectively
+      address_house_from:
+        type: string
+        format: CSV
+        example: 123,15
+        description: The original house number for each address
+      address_house_to:
+        type: string
+        format: CSV
+        example: 124,165
+        description: The new house number for each address
+      address_flat_from:
+        type: string
+        format: CSV
+        example: A,7
+        description: The original flat number for each address
+      address_flat_to:
+        type: string
+        format: CSV
+        example: B,8
+        description: The new flat number for each address
+      address_postcode_from:
+        type: string
+        format: CSV
+        example: AB12 3CD, EC2A 2DT
+        description: The original postcode for each address
+      address_postcode_to:
+        type: string
+        format: CSV
+        example: AB12 4CD,EC2A 3DT
+        description: The new postcode for each address
+      address_post_town_from:
+        type: string
+        format: CSV
+        example: London,London
+        description: The original post town for each address
+      address_post_town_to:
+        type: string
+        format: CSV
+        example: Bristol,Bristol
+        description: The new post town for each address
+      address_street_from:
+        type: string
+        format: CSV
+        example: Old Street, Worship Street
+        description: The original street for each address
+      address_street_to:
+        type: string
+        format: CSV
+        example: New Street, Church Street
+        description: The new street for each address
+      address_town_from:
+        type: string
+        format: CSV
+        example: London,London
+        description: The original town for each address
+      address_town_to:
+        type: string
+        format: CSV
+        example: Bristol,Bristol
+        description: The new town for each address
+      address_county_from:
+        type: string
+        format: CSV
+        example: London,London
+        description: The original county for each address
+      address_county_to:
+        type: string
+        format: CSV
+        example: Avon,Avon
+        description: The new county for each address
+      address_locality_from:
+        type: string
+        format: CSV
+        example: London,London
+        description: The original locality for each address
+      address_locality_to:
+        type: string
+        format: CSV
+        example: Bristol,Bristol
+        description: The new locality for each address
+      address_ward_from:
+        type: string
+        format: CSV
+        description: The original ward for each address
+      address_ward_to:
+        type: string
+        format: CSV
+        description: The new ward for each address
+      address_uprn_from:
+        type: string
+        format: CSV
+        example: 12345,67890
+        description: The original unique postal reference number (UPRN) for each address
+      address_uprn_to:
+        type: string
+        format: CSV
+        example: 54321,09876
+        description: The new unique postal reference number (UPRN) for each address
+      address_geo_code_1_from:
+        type: string
+        format: CSV
+        example: -1.086015,-0.086015
+        description: The original longitude for each address
+      address_geo_code_1_to:
+        type: string
+        format: CSV
+        example: -1.086016,-0.086016
+        description: The new longitude for each address
+      address_geo_code_2_from:
+        type: string
+        format: CSV
+        example: 50.522402,51.522402
+        description: The original latitude for each address
+      address_geo_code_2_to:
+        type: string
+        format: CSV
+        example: 50.522403,51.522403
+        description: The new latitude for each address
+      address_start_date__from:
+        type: string
+        format: CSV
+        example: 2017-12-25 00:00:00,2017-12-25 00:00:00
+        description: The original start date for each address. Date format is ISO 8601 (YYYY-MM-DD hh:mm:ss)
+      address_start_date__to:
+        type: string
+        format: CSV
+        example: 2017-12-26 00:00:00,2017-12-26 00:00:00
+        description: The new start date for each address. Date format is ISO 8601 (YYYY-MM-DD hh:mm:ss)
+      address_end_date__from:
+        type: string
+        format: CSV
+        example: 2017-12-25 00:00:00,2017-12-25 00:00:00
+        description: The original end date for each address. Date format is ISO 8601 (YYYY-MM-DD hh:mm:ss)
+      address_end_date__to:
+        type: string
+        format: CSV
+        example: 2017-12-26 00:00:00,2017-12-26 00:00:00
+        description: The new end date for each address. Date format is ISO 8601 (YYYY-MM-DD hh:mm:ss)
+      address_country_id_from:
+        type: string
+        format: CSV
+        example: 243,243
+        description: The original country ID for each address. Country definitions are available from https://firmstep-kb.cms-live.firmstep.com/third-party-integrations/integrations-3rd-party/ci-language-and-country
+      address_country_id_to:
+        type: string
+        format: CSV
+        example: 244,244
+        description: The new country ID for each address. Country definitions are available from https://firmstep-kb.cms-live.firmstep.com/third-party-integrations/integrations-3rd-party/ci-language-and-country
+      address_id:
+        type: string
+        format: CSV
+        example: 1,2
+        description: The IDs associated with each address
+      address_primary_from:
+        type: string
+        format: CSV
+        example: 1,0
+        description: The original values to indicate the primary address. Possible values are 0 or 1 to indicate a non-primary and primary address respectively
+      address_primary_to:
+        type: string
+        format: CSV
+        example: 0,1
+        description: The new values to indicate the primary address. Possible values are 0 or 1 to indicate a non-primary and primary address respectively
+      first_name_from:
+        type: string
+        example: John
+        description: The original first name of the contact
+      first_name_to:
+        type: string
+        example: Jonathan
+        description: The new first name of the contact
+      middle_name_from:
+        type: string
+        example: Bill
+        description: The original middle name of the contact
+      middle_name_to:
+        type: string
+        example: Billy
+        description: The new middle name of the contact
+      last_name_from:
+        type: string
+        example: Doe
+        description: The original last name of the contact
+      last_name_to:
+        type: string
+        example: Dee
+        description: The new last name of the contact
+      prefix_id_from:
+        type: string
+        example: "3"
+        description: The original prefix ID of the contact. Possible values are 1, 2, 3 or 4 for Mrs., Ms., Mr. or Dr. respectively. Prefix IDs are defined within the CiviVars at https://firmstep-kb.cms-live.firmstep.com/third-party-integrations/integrations-3rd-party/ci-get-civi-vars
+      prefix_id_to:
+        type: string
+        example: "4"
+        description: The new prefix ID of the contact. Possible values are 1, 2, 3 or 4 for Mrs., Ms., Mr. or Dr. respectively. Prefix IDs are defined within the CiviVars at https://firmstep-kb.cms-live.firmstep.com/third-party-integrations/integrations-3rd-party/ci-get-civi-vars
+      suffix_id_from:
+        type: string
+        example: "1"
+        description: The original suffix ID for the contact. Possible values are 1 or 2 for Jr. or Sr. respectively then increasing roman numerals from 3 onwards. Suffix IDs are defined within the CiviVars at https://firmstep-kb.cms-live.firmstep.com/third-party-integrations/integrations-3rd-party/ci-get-civi-vars
+      suffix_id_to:
+        type: string
+        example: "2"
+        description: The new suffix ID for the contact. Possible values are 1 or 2 for Jr. or Sr. respectively then increasing roman numerals from 3 onwards. Suffix IDs are defined within the CiviVars at https://firmstep-kb.cms-live.firmstep.com/third-party-integrations/integrations-3rd-party/ci-get-civi-vars
+      display_name_from:
+        type: string
+        example: Mr. John Doe
+        description: The original display name for the contact generated by concatenating the title, firstname and lastname
+      display_name_to:
+        type: string
+        example: Dr. Jonathan Dee
+        description: The new display name for the contact generated by concatenating the title, firstname and lastname
+      email_from:
+        type: string
+        example: john.doe@email.com
+        description: The original email address for the contact
+      email_to:
+        type: string
+        example: jonathan.dee@email.com
+        description: The new email address for the contact
+    description: An audit object for a FirmStep contact.
+    example:
+      is_deceased_to: 1
+      suffix_id_to: "2"
+      address_ward_from: address_ward_from
+      birth_date_from: 1980-12-25
+      address_postcode_to: AB12 4CD,EC2A 3DT
+      is_deleted_to: 0
+      status_from: New
+      address_flat_from: A,7
+      preferred_language_to: en_US
+      middle_name_to: Billy
+      address_street_to: New Street, Church Street
+      prefix_id_to: "4"
+      contact_type_to: Business
+      is_deceased_from: 0
+      address_flat_to: B,8
+      display_name_from: Mr. John Doe
+      last_name_from: Doe
+      email_to: jonathan.dee@email.com
+      address_end_date__from: 2017-12-25 00:00:00,2017-12-25 00:00:00
+      ss_account_from: "false"
+      birth_date_to: 1980-11-24
+      address_country_id_to: 244,244
+      consent_to_share__from: "0"
+      address_post_town_from: London,London
+      address_id: 1,2
+      ss_account_to: "true"
+      display_name_to: Dr. Jonathan Dee
+      preferred_language_from: en_GB
+      log_user_id: "1234567890"
+      address_geo_code_1_from: -1.086015,-0.086015
+      log_date: 2017-12-25 12:00:00
+      address_town_from: London,London
+      first_name_to: Jonathan
+      address_uprn_to: 54321,09876
+      preferred_contact_method_from: 1
+      address_street_from: Old Street, Worship Street
+      address_house_to: 124,165
+      is_deleted_from: 0
+      address_primary_from: 1,0
+      address_ward_to: address_ward_to
+      gender_id_from: 1
+      address_geo_code_2_to: 50.522403,51.522403
+      last_name_to: Dee
+      suffix_id_from: "1"
+      gender_id_to: 2
+      preferred_contact_method_to: 2
+      whom_name: John Doe
+      contact_type_from: Individual
+      address_postcode_from: AB12 3CD, EC2A 2DT
+      address_locality_to: Bristol,Bristol
+      address_post_town_to: Bristol,Bristol
+      address_locality_from: London,London
+      address_country_id_from: 243,243
+      address_start_date__from: 2017-12-25 00:00:00,2017-12-25 00:00:00
+      address_primary_to: 0,1
+      who_name: Jane Doe
+      address_house_from: 123,15
+      address_geo_code_2_from: 50.522402,51.522402
+      address_end_date__to: 2017-12-26 00:00:00,2017-12-26 00:00:00
+      middle_name_from: Bill
+      address_county_from: London,London
+      address_county_to: Avon,Avon
+      address_geo_code_1_to: -1.086016,-0.086016
+      address_town_to: Bristol,Bristol
+      consent_to_share__to: "1"
+      status_to: Approved
+      address_start_date__to: 2017-12-26 00:00:00,2017-12-26 00:00:00
+      prefix_id_from: "3"
+      address_uprn_from: 12345,67890
+      first_name_from: John
+      email_from: john.doe@email.com
+  Relationship_FirmStep:
+    type: object
+    required:
+    - id
+    properties:
+      cid:
+        type: string
+        example: null
+        description: TBC
+      civicrm_relationship_type_id:
+        type: integer
+        example: null
+        description: The Relationship Type Identifier
+      contact_id_a:
+        type: string
+        example: null
+        description: Target UCRN TBC
+      contact_id_b:
+        type: string
+        example: null
+        description: Contact UCRN TBC
+      description:
+        type: string
+        example: null
+        description: Description of the Relationship Type
+      display_name:
+        type: string
+        example: null
+        description: Display name for the target generated by concatenating the title, firstname and lastname
+      email:
+        type: string
+        example: null
+        description: Email address of the contact TBC
+      end_date:
+        type: string
+        example: null
+        description: End date of the relationship. TBC - date format changes when relationship is deactivated - need to confirm what happens if relationship has no end date.
+      id:
+        type: integer
+        example: null
+        description: The Relationship Identifier
+      is_active:
+        type: boolean
+        example: false
+        description: Indicates whether the relationship is active or inactive. Possible values are 0 for inactive and 1 for active. TBC - why is this needed if end_date provides the same information?
+      is_permission_a_b:
+        type: boolean
+        example: false
+        description: Inidcates whether the target has permission to view the relationship. Possible values are 0 for no permissions and 1 for has permission.
+      is_permission_b_a:
+        type: boolean
+        example: false
+        description: Inidcates whether the contact has permission to view the relationship. Possible values are 0 for no permissions and 1 for has permission.
+      name:
+        type: string
+        example: null
+        description: Display name for the target. TBC - this appears to be a duplicate of display_name
+      phone:
+        type: string
+        example: null
+        description: Primary phone number for target
+      relation:
+        type: string
+        example: null
+        description: Name of the relationship from the perspective of the contact
+      relationship_type_id:
+        type: string
+        example: null
+        description: The Relationship Type Identifier. TBC - This is a duplicate of civicrm_relationship_type_id
+      rtype:
+        type: string
+        example: null
+        description: The direction of the relationship between entities. Direction will be either a to b or b to a.
+        enum:
+        - a_b
+        - b_a
+      start_date:
+        type: string
+        example: null
+        description: The start date of the relationship. TBC - date format changes when relationship is deactivated - need to confirm what happens if relationship has no start date.
+    description: 'A relationship object for a FirmStep contact. Note: Fields marked
+      with TBC require further clarification on usage'
+    example:
+      end_date: null
+      civicrm_relationship_type_id: null
+      is_active: false
+      relationship_type_id: null
+      is_permission_a_b: false
+      is_permission_b_a: false
+      description: null
+      display_name: null
+      relation: null
+      rtype: null
+      phone: null
+      name: null
+      contact_id_a: null
+      contact_id_b: null
+      id: null
+      email: null
+      cid: null
+      start_date: null
+  Relationship_FirmStep_Audit:
+    type: object
+    required:
+    - contact_id_a
+    - contact_id_b
+    - relationship_type_id
+    properties:
+      customerName:
+        type: string
+        example: Jane Doe
+        description: Name of the user making the change or Contact being acted upon
+      domainUser:
+        type: string
+        example: John Smith
+        description: Name of the user making the change
+      ipAddress:
+        type: string
+        example: 123.45.67.89
+        description: IP Address of the user's client making the change
+      source:
+        type: string
+        example: firmstep
+        description: Source system making the change
+        enum:
+        - firmstep
+      contact_id_a:
+        type: string
+        example: "3004"
+        description: Target UCRN. TBC - Contact's Unique Customer Reference Number (UCRN) for target
+      contact_id_b:
+        type: string
+        example: "3005"
+        description: Contact UCRN. TBC - Contact's Unique Customer Reference Number (UCRN) to form the relationship with
+      relationship_type_id:
+        type: integer
+        example: 4
+        description: The Relationship Type Identifier
+      start_date:
+        type: string
+        format: date
+        example: 2017-12-24
+        description: Start date of the relationship. Date format is ISO 8601 (YYYY-MM-DD)
+      end_date:
+        type: string
+        format: date
+        example: 2018-12-24
+        description: End date of the relationship. Date format is ISO 8601 (YYYY-MM-DD)
+      is_active:
+        type: boolean
+        example: false
+        description: Set the relationship type to active. Set to 1 for active or 0 for inactive
+      is_permission_a_b:
+        type: boolean
+        description: 'Set permission for contact_id_a to view the relationship. Set
+          to 1 to allow permission and 0 to not allow permission. '
+      is_permission_b_a:
+        type: boolean
+        description: 'Set permission for contact_id_b to view the relationship. Set
+          to 1 to allow permission and 0 to not allow permission. '
+    description: A relationship object with audit information for creating a relationship between an entity a and an entity b
+    example:
+      end_date: 2018-12-24
+      domainUser: John Smith
+      is_active: false
+      relationship_type_id: 4
+      is_permission_a_b: true
+      is_permission_b_a: true
+      ipAddress: 123.45.67.89
+      contact_id_a: "3004"
+      source: firmstep
+      contact_id_b: "3005"
+      customerName: Jane Doe
+      start_date: 2017-12-24
+  RelationshipType_FirmStep:
+    type: object
+    required:
+    - id
+    properties:
+      id:
+        type: integer
+        example: null
+        description: The relationship type identifier
+      name_a_b:
+        type: string
+        example: Child of
+        description: The name of the relationship from the perspective of entity a.
+      label_a_b:
+        type: string
+        example: null
+        description: TBC - This is not in the Create so how can it be returned?
+      name_b_a:
+        type: string
+        example: Parent of
+        description: The name of the relationship from the perspective of entity b.
+      label_b_a:
+        type: string
+        example: null
+        description: TBC - This is not in the Create so how can it be returned?
+      description:
+        type: string
+        example: Parent/Child relationship
+        description: A description of the relationship type.
+      contact_type_a:
+        type: string
+        example: null
+        description: The contact type for entity a. TBC - Possible values are ? or ?
+      contact_type_b:
+        type: string
+        example: null
+        description: The contact type for entity b. TBC - Possible values are ? or ?
+      is_reserved:
+        type: string
+        example: null
+        description: Indicates the relationship type is reserved. Possible values are 0 for not reserved and 1 for reserved. TBC - confirm boolean values.TBC - what is reserved?
+      is_active:
+        type: string
+        example: null
+        description: Inidicated the relationship type. Possible values are 0 for inactive and 1 for active. TBC - confirm boolean values.
+      count:
+        type: string
+        example: null
+        description: Total number of times the relationship type has been used.
+    description: A relationship type object defining a type of relationship type
+    example:
+      is_reserved: null
+      contact_type_b: null
+      label_a_b: null
+      label_b_a: null
+      is_active: null
+      contact_type_a: null
+      count: null
+      name_a_b: Child of
+      name_b_a: Parent of
+      description: Parent/Child relationship
+      id: null
+  RelationshipType_FirmStep_Audit:
+    type: object
+    properties:
+      customerName:
+        type: string
+        example: Jane Doe
+        description: Name of the Contact being acted upon
+      domainUser:
+        type: string
+        example: John Smith
+        description: Name of the user making the change
+      ipAddress:
+        type: string
+        example: 123.45.67.89
+        description: IP Address of the user making the change
+      source:
+        type: string
+        example: firmstep
+        description: Source system making the change
+        enum:
+        - firmstep
+      name_a_b:
+        type: string
+        example: Child of
+        description: The name of the relationship from the perspective of entity a.
+      name_b_a:
+        type: string
+        example: Parent of
+        description: The name of the relationship from the perspective of entity b.
+      description:
+        type: string
+        example: Parent/Child relationship
+        description: A description of the relationship type.
+      contact_type_a:
+        type: string
+        example: null
+        description: The contact type for entity a. Possible values are ? or ?
+      contact_type_b:
+        type: string
+        example: null
+        description: The contact type for entity b. Possible values are ? or ?
+      is_active:
+        type: string
+        example: "1"
+        description: A flag to identify whether the relationship type is active or inactive. Defaults to 1 when creating a relationship type. Possible values are 0 for an inactive relationship type and 1 for an active relationship type.
+    description: A relationship type object with audit information used for creating and updating relationship types.
+    example:
+      contact_type_b: null
+      domainUser: John Smith
+      is_active: "1"
+      contact_type_a: null
+      ipAddress: 123.45.67.89
+      name_a_b: Child of
+      name_b_a: Parent of
+      description: Parent/Child relationship
+      source: firmstep
+      customerName: Jane Doe
+  ErrorResponse:
+    required:
+    - status_code
+    properties:
+      status_code:
+        type: integer
+        example: 400
+        description: The HTTP status relating to the error e.g. 400
+      status_message:
+        type: string
+        example: Bad Request
+        description: The HTTP message relating to the status code e.g. for a 400 status the message should be Bad Request
+      dev_code:
+        type: string
+        example: req_12345
+        description: An application specific error code for use in tracing and debugging
+      dev_message:
+        type: string
+        example: The required request parameter xyz was not provided
+        description: An application specific error message to assist in identifying the error
