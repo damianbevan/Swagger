@@ -763,7 +763,7 @@ definitions:
         format: date
         example: '2018-12-24'
       is_active:
-        description: 'Set the relationship type to active. Set to 1 for active or 0 for inactive'
+        description: 'Set the relationship to active. Set to 1 for active or 0 for inactive'
         type: boolean
         example: 1
       is_permission_a_b:
@@ -776,6 +776,11 @@ definitions:
     description: 'A relationship type object defining a type of relationship type'
     required:
       - id
+      - contact_type_a
+      - contact_type_b
+      - is_reserved
+      - is_active
+      - count
     type: object
     properties:
       id:
@@ -824,6 +829,9 @@ definitions:
         example:
   RelationshipType_FirmStep_Audit:
     description: 'A relationship type object with audit information used for creating and updating relationship types.'
+    required:
+      - contact_type_a
+      - contact_type_b
     type: object
     properties:
       customerName:
