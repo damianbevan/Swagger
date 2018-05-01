@@ -699,7 +699,7 @@ definitions:
       relationship_type_id:
         description: "The Relationship Type Identifier."
         type: string
-        example:
+        example: 170
   Relationship_FirmStep_Audit_Request:
     description: 'A relationship object with audit information for creating a relationship between an entity a and an entity b'
     required:
