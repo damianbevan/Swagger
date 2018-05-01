@@ -211,8 +211,22 @@ paths:
           schema:
             $ref: '#/definitions/RelationshipType_FirmStep_Audit'
       responses:
-        '403':
-          description: Forbidden
+        '201':
+          description: The relationship type has been created. TBC - Awaiting confirmation of response definition.
+          schema:
+            $ref: '#/definitions/RelationshipType_FirmStep'
+        '400':
+          description: The client request was incorrect or badly formed. Details of the error are returned within the ErrorResponse object.
+          schema:
+              $ref: '#/definitions/ErrorResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+              $ref: '#/definitions/ErrorResponse'
+        default:
+          description: All other error conditions
+          schema:
+            $ref: '#/definitions/ErrorResponse'
   /api/v1/published/FirmstepRelationshipTypes/{ID}:
     put:
       tags:
