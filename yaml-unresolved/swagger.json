@@ -34,16 +34,8 @@ paths:
             type: array
             items:
               $ref: '#/definitions/Audit_FirmStep'
-        '400':
-          description: The client request was incorrect or badly formed. Details of the error are returned within the ErrorResponse object.
-          schema:
-              $ref: '#/definitions/ErrorResponse'
-        '500':
-          description: Internal Server Error
-          schema:
-              $ref: '#/definitions/ErrorResponse'
         default:
-          description: All other error conditions
+          description: A client (4xx) or server (5xx) error has occured. Details of the error are returned within the ErrorResponse object.
           schema:
             $ref: '#/definitions/ErrorResponse'
   /api/v1/published/FirmstepRelationships:
@@ -69,16 +61,8 @@ paths:
             type: array
             items:
               $ref: '#/definitions/Relationship_FirmStep_Response'
-        '400':
-          description: The client request was incorrect or badly formed. Details of the error are returned within the ErrorResponse object.
-          schema:
-              $ref: '#/definitions/ErrorResponse'
-        '500':
-          description: Internal Server Error
-          schema:
-              $ref: '#/definitions/ErrorResponse'
         default:
-          description: All other error conditions
+          description: A client (4xx) or server (5xx) error has occured. Details of the error are returned within the ErrorResponse object.
           schema:
             $ref: '#/definitions/ErrorResponse'
     post:
@@ -103,16 +87,8 @@ paths:
           description: The relationship has been created. TBC - Awaiting confirmation of response definition.
           schema:
             $ref: '#/definitions/Relationship_FirmStep_Simple_Response'
-        '400':
-          description: The client request was incorrect or badly formed. Details of the error are returned within the ErrorResponse object.
-          schema:
-              $ref: '#/definitions/ErrorResponse'
-        '500':
-          description: Internal Server Error
-          schema:
-              $ref: '#/definitions/ErrorResponse'
         default:
-          description: All other error conditions
+          description: A client (4xx) or server (5xx) error has occured. Details of the error are returned within the ErrorResponse object.
           schema:
             $ref: '#/definitions/ErrorResponse'
   /api/v1/published/FirmstepRelationships/{relationship_id}:
@@ -156,16 +132,8 @@ paths:
           description: The relationship has been deleted. TBC - Awaiting confirmation of response definition.
           schema:
             $ref: '#/definitions/Relationship_FirmStep_Simple_Response'
-        '400':
-          description: The client request was incorrect or badly formed. Details of the error are returned within the ErrorResponse object.
-          schema:
-              $ref: '#/definitions/ErrorResponse'
-        '500':
-          description: Internal Server Error
-          schema:
-              $ref: '#/definitions/ErrorResponse'
         default:
-          description: All other error conditions
+          description: A client (4xx) or server (5xx) error has occured. Details of the error are returned within the ErrorResponse object.
           schema:
             $ref: '#/definitions/ErrorResponse'
   /api/v1/published/FirmstepRelationshipTypes:
@@ -185,12 +153,8 @@ paths:
             type: array
             items:
               $ref: '#/definitions/RelationshipType_FirmStep'
-        '500':
-          description: Internal Server Error
-          schema:
-              $ref: '#/definitions/ErrorResponse'
         default:
-          description: All other error conditions
+          description: A client (4xx) or server (5xx) error has occured. Details of the error are returned within the ErrorResponse object.
           schema:
             $ref: '#/definitions/ErrorResponse'
     post:
@@ -215,16 +179,8 @@ paths:
           description: The relationship type has been created. TBC - Awaiting confirmation of response definition.
           schema:
             $ref: '#/definitions/RelationshipType_FirmStep'
-        '400':
-          description: The client request was incorrect or badly formed. Details of the error are returned within the ErrorResponse object.
-          schema:
-              $ref: '#/definitions/ErrorResponse'
-        '500':
-          description: Internal Server Error
-          schema:
-              $ref: '#/definitions/ErrorResponse'
         default:
-          description: All other error conditions
+          description: A client (4xx) or server (5xx) error has occured. Details of the error are returned within the ErrorResponse object.
           schema:
             $ref: '#/definitions/ErrorResponse'
   /api/v1/published/FirmstepRelationshipTypes/{ID}/active:
@@ -246,7 +202,7 @@ paths:
           type: integer
         - name: is_active
           in: query
-          description: "A flag to identify whether the relationship type is active or inactive. Possible values are 0 for an inactive relationship type and 1 for an active relationship type."
+          description: "A flag to identify whether the relationship type is active or inactive. Possible values are 0 to deactivate a relationship type and 1 to reactivate a relationship type."
           required: true
           type: boolean
         - name: customerName
@@ -270,8 +226,12 @@ paths:
           required: false
           type: string
       responses:
-        '403':
-          description: Forbidden
+        '204':
+          description: Successful activation of deactivation. No Content
+        default:
+          description: A client (4xx) or server (5xx) error has occured. Details of the error are returned within the ErrorResponse object.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
 definitions:
   Audit_FirmStep:
     description: 'An audit object for a FirmStep contact.'
