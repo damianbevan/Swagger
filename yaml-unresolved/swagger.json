@@ -227,12 +227,12 @@ paths:
           description: All other error conditions
           schema:
             $ref: '#/definitions/ErrorResponse'
-  /api/v1/published/FirmstepRelationshipTypes/{ID}:
+  /api/v1/published/FirmstepRelationshipTypes/{ID}/active:
     put:
       tags:
         - FirmstepRelationshipType
       summary: 'Update an existing the relationship type for a given relationship identifier'
-      description: 'This method is to be used to update a relationship type. It can be used to activate and deactivate relationship types by setting the is_active flag to 1 or 0 respectively. This is a stub method that does not perform any action at present other than return an HTTP 403 status'
+      description: 'This method is to be used to update the active status of a relationship type. It can be used to activate and deactivate relationship types by setting the is_active flag to 1 or 0 respectively. This is a stub method that does not perform any action at present other than return an HTTP 403 status'
       operationId: FirmstepRelationshipType_DeleteFirmStepRelationshipType
       consumes:
         - application/json
@@ -800,7 +800,7 @@ definitions:
       id:
         description: "The relationship type identifier"
         type: integer
-        example: 
+        example: 123
       name_a_b:
         description: "The name of the relationship from the perspective of entity a."
         type: string
@@ -808,7 +808,7 @@ definitions:
       label_a_b:
         description: "TBC - This is not in the Create so how can it be returned?"
         type: string
-        example:
+        example: ???
       name_b_a:
         description: "The name of the relationship from the perspective of entity b."
         type: string
@@ -816,7 +816,7 @@ definitions:
       label_b_a:
         description: "TBC - This is not in the Create so how can it be returned?"
         type: string
-        example:
+        example: ???
       description:
         description: "A description of the relationship type."
         type: string
@@ -824,23 +824,23 @@ definitions:
       contact_type_a:
         description: "The contact type for entity a. TBC - Possible values are ? or ?"
         type: string
-        example: 
+        example: Individual
       contact_type_b:
         description: "The contact type for entity b. TBC - Possible values are ? or ?"
         type: string
-        example: 
+        example: Individual
       is_reserved:
         description: "Indicates the relationship type is reserved. Possible values are 0 for not reserved and 1 for reserved. TBC - confirm boolean values.TBC - what is reserved?"
-        type: string
-        example:
+        type: boolean
+        example: 0
       is_active:
         description: "Inidicated the relationship type. Possible values are 0 for inactive and 1 for active. TBC - confirm boolean values."
-        type: string
-        example:
+        type: boolean
+        example: 0
       count:
         description: "Total number of times the relationship type has been used."
-        type: string
-        example:
+        type: integer
+        example: 1
   RelationshipType_FirmStep_Audit:
     description: 'A relationship type object with audit information used for creating and updating relationship types.'
     required:
@@ -881,14 +881,14 @@ definitions:
       contact_type_a:
         description: "The contact type for entity a. Possible values are ? or ?"
         type: string
-        example: 
+        example: Individual
       contact_type_b:
         description: "The contact type for entity b. Possible values are ? or ?"
         type: string
-        example: 
+        example: Individual
       is_active:
         description: "A flag to identify whether the relationship type is active or inactive. Defaults to 1 when creating a relationship type. Possible values are 0 for an inactive relationship type and 1 for an active relationship type."
-        type: string
+        type: boolean
         example: 1
   ErrorResponse:
     required:
