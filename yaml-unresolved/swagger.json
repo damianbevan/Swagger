@@ -244,6 +244,11 @@ paths:
           description: 'The Relationship Type identifier'
           required: true
           type: integer
+        - name: is_active
+          in: query
+          description: "A flag to identify whether the relationship type is active or inactive. Possible values are 0 for an inactive relationship type and 1 for an active relationship type."
+          required: true
+          type: boolean
         - name: customerName
           in: query
           description: 'Name of the contact being acted upon'
@@ -264,11 +269,6 @@ paths:
           description: 'Source system making the change'
           required: false
           type: string
-        - name: is_active
-          in: query
-          description: "A flag to identify whether the relationship type is active or inactive. Possible values are 0 for an inactive relationship type and 1 for an active relationship type."
-          required: true
-          type: boolean
       responses:
         '403':
           description: Forbidden
