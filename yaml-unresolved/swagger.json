@@ -101,6 +101,13 @@ paths:
       responses:
         '201':
           description: The relationship has been created. TBC - Awaiting confirmation of response definition.
+          schema:
+            type: object
+            properties:
+              id:
+                description: The idenifier of the relationship created
+                type: integer
+                example: 1
         '400':
           description: The client request was incorrect or badly formed. Details of the error are returned within the ErrorResponse object.
           schema:
