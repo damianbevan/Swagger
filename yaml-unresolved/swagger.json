@@ -40,6 +40,8 @@ paths:
               $ref: '#/definitions/ErrorResponse'
         '500':
           description: Internal Server Error
+          schema:
+              $ref: '#/definitions/ErrorResponse'
         default:
           description: All other error conditions
           schema:
@@ -73,6 +75,8 @@ paths:
               $ref: '#/definitions/ErrorResponse'
         '500':
           description: Internal Server Error
+          schema:
+              $ref: '#/definitions/ErrorResponse'
         default:
           description: All other error conditions
           schema:
@@ -155,6 +159,8 @@ paths:
               $ref: '#/definitions/RelationshipType_FirmStep'
         '500':
           description: Internal Server Error
+          schema:
+              $ref: '#/definitions/ErrorResponse'
         default:
           description: All other error conditions
           schema:
