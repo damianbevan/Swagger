@@ -107,7 +107,7 @@ paths:
               id:
                 description: The idenifier of the relationship created
                 type: integer
-                example: 1
+                example: 170
         '400':
           description: The client request was incorrect or badly formed. Details of the error are returned within the ErrorResponse object.
           schema:
