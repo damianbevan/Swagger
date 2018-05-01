@@ -700,11 +700,11 @@ definitions:
   Relationship_FirmStep_Simple_Response:
     description: 'A relationship object for a FirmStep contact. Used to provide a response object for a POST or DELETE request.'
     required:
-      - relationship_type_id
+      - relationship_id
     type: object
     properties:
-      relationship_type_id:
-        description: "The Relationship Type Identifier."
+      relationship_id:
+        description: "The Relationship  Identifier."
         type: string
         example: 170
   Relationship_FirmStep_Audit_Request:
