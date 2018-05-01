@@ -96,7 +96,7 @@ paths:
       tags:
         - FirmstepRelationship
       summary: 'Delete the relationship for the given relationship identifier'
-      description: 'This is a stub method that does not perform any action at present other than return an HTTP 403 status.'
+      description: 'Delete a relationship for a given relationship identifier. This is a stub method that does not perform any action at present other than return an HTTP 403 status.'
       operationId: FirmstepRelationship_DeleteFirmStepRelationship
       consumes: []
       produces:
