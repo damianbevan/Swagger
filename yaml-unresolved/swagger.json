@@ -100,7 +100,7 @@ paths:
             $ref: '#/definitions/Relationship_FirmStep_Audit'
       responses:
         '201':
-          description: The relationship has been created.
+          description: The relationship has been created. TBC - Awaiting confirmation of response definition.
         '400':
           description: The client request was incorrect or badly formed. Details of the error are returned within the ErrorResponse object.
           schema:
