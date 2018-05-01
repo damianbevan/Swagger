@@ -657,7 +657,7 @@ definitions:
       id:
         description: "The Relationship Identifier"
         type: integer
-        example:
+        example: 170
       is_active:
         description: "Indicates whether the relationship is active or inactive. Possible values are 0 for inactive and 1 for active. TBC - why is this needed if end_date provides the same information?"
         type: boolean
@@ -665,38 +665,38 @@ definitions:
       is_permission_a_b:
         description: "Inidcates whether the target has permission to view the relationship. Possible values are 0 for no permissions and 1 for has permission."
         type: boolean
-        example:
+        example: 1
       is_permission_b_a:
         description: "Inidcates whether the contact has permission to view the relationship. Possible values are 0 for no permissions and 1 for has permission."
         type: boolean
         example: 1
-      name:
+      name: 
         description: "Display name for the target. TBC - this appears to be a duplicate of display_name"
         type: string
-        example:
+        example: Mr John Doe
       phone:
         description: "Primary phone number for target"
         type: string
-        example:
+        example: 07123123123
       relation:
         description: "Name of the relationship from the perspective of the contact"
         type: string
-        example:
+        example: Child of
       relationship_type_id:
         description: "The Relationship Type Identifier. TBC - This is a duplicate of civicrm_relationship_type_id"
         type: string
-        example:
+        example: 1
       rtype:
-        description: "The direction of the relationship between entities. Direction will be either a to b or b to a."
+        description: "The direction of the relationship between entities. Direction will be either a to b (a_b) or b to a (b_a)."
         type: string
+        example: a_b
         enum:
           - a_b
           - b_a
-        example:
       start_date:
         description: "The start date of the relationship. If a value was not specified on creation then the value will be the date the relationship was created. TBC - date format changes when relationship is deactivated - need to confirm what happens if relationship has no start date."
         type: string
-        example:
+        example: 30/12/2018
   Relationship_FirmStep_Simple_Response:
     description: 'A simple object for a FirmStep relationship. Used to provide a response object for a Relationship POST or DELETE request.'
     required:
@@ -762,9 +762,11 @@ definitions:
       is_permission_a_b:
         description: 'Set permission for contact_id_a to view the relationship. Set to 1 to allow permission and 0 to not allow permission. '
         type: boolean
+        example: 1
       is_permission_b_a:
         description: 'Set permission for contact_id_b to view the relationship. Set to 1 to allow permission and 0 to not allow permission. '
         type: boolean
+        example: 1
   RelationshipType_FirmStep:
     description: 'A relationship type object defining a type of relationship type'
     required:
