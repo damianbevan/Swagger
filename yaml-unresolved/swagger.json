@@ -238,7 +238,6 @@ paths:
         - application/json
       produces:
         - application/json
-      
       parameters:
         - name: ID
           in: path
@@ -265,23 +264,11 @@ paths:
           description: 'Source system making the change'
           required: false
           type: string
-        - is_active:
+        - name: is_active
           in: query
           description: "A flag to identify whether the relationship type is active or inactive. Possible values are 0 for an inactive relationship type and 1 for an active relationship type."
           required: true
           type: boolean
-      parameters:
-        - name: ID
-          in: path
-          description: 'The FirmStep contacts Unique Customer Reference Number (UCRN)'
-          required: true
-          type: string
-        - name: firmstep_relationshiptype_audit
-          in: body
-          description: ''
-          required: true
-          schema:
-            $ref: '#/definitions/RelationshipType_FirmStep_Audit'
       responses:
         '403':
           description: Forbidden
