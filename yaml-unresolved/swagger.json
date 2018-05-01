@@ -609,10 +609,6 @@ definitions:
         description: "The UCRN of the contact the request relates to"
         type: string
         example: 123
-      civicrm_relationship_type_id:
-        description: "The Relationship Type Identifier. Duplicate of relationship_type_id and will not be supported."
-        type: integer
-        example: 1
       contact_id_a:
         description: "Target UCRN. The UCRN of a contact that has the relationship with this contact."
         type: string
@@ -677,7 +673,7 @@ definitions:
           - b_a
         example:
       start_date:
-        description: "The start date of the relationship. TBC - date format changes when relationship is deactivated - need to confirm what happens if relationship has no start date."
+        description: "The start date of the relationship. If a value was not specified on creation then the value will be the date the relationship was created. TBC - date format changes when relationship is deactivated - need to confirm what happens if relationship has no start date."
         type: string
         example:
   Relationship_FirmStep_Audit:
@@ -719,7 +715,7 @@ definitions:
         type: integer
         example: 4
       start_date:
-        description: 'Start date of the relationship. Date format is ISO 8601 (YYYY-MM-DD)'
+        description: 'Start date of the relationship. If no start date is specified then todays date will be used. Date format is ISO 8601 (YYYY-MM-DD)'
         type: string
         format: date
         example: '2017-12-24'
