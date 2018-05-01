@@ -698,7 +698,7 @@ definitions:
         type: string
         example:
   Relationship_FirmStep_Simple_Response:
-    description: 'A relationship object for a FirmStep contact. Used to provide a response object for a POST or DELETE request.'
+    description: 'A simple object for a FirmStep relationship. Used to provide a response object for a Relationship POST or DELETE request.'
     required:
       - relationship_id
     type: object
