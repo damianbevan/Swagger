@@ -238,6 +238,38 @@ paths:
         - application/json
       produces:
         - application/json
+      
+      parameters:
+        - name: ID
+          in: path
+          description: 'The Relationship Type identifier'
+          required: true
+          type: integer
+        - name: customerName
+          in: query
+          description: 'Name of the contact being acted upon'
+          required: false
+          type: string
+        - name: domainUser
+          in: query
+          description: 'Name of the user making the change'
+          required: false
+          type: string
+        - name: ipAddress
+          in: query
+          description: 'IP Address of the user making the change'
+          required: false
+          type: string
+        - name: source
+          in: query
+          description: 'Source system making the change'
+          required: false
+          type: string
+        - is_active:
+          in: query
+          description: "A flag to identify whether the relationship type is active or inactive. Possible values are 0 for an inactive relationship type and 1 for an active relationship type."
+          required: true
+          type: boolean
       parameters:
         - name: ID
           in: path
