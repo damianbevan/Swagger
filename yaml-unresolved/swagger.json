@@ -69,7 +69,7 @@ paths:
       tags:
         - FirmstepRelationship
       summary: Creates a Relationship between two contacts.
-      description: 'This is a stub method that does not perform any action at present other than to return a HTTP 403 status code.'
+      description: 'Creates a relationship between two contacts. This is a stub method that does not perform any action at present other than to return a HTTP 403 status code.'
       operationId: FirmstepRelationship_PostFirmstepRelationship
       consumes:
         - application/json
