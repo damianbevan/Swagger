@@ -231,7 +231,7 @@ paths:
     put:
       tags:
         - FirmstepRelationshipType
-      summary: 'Update an existing the relationship type for a given relationship identifier'
+      summary: 'Activate and Deactive a Relationship Type'
       description: 'This method is to be used to update the active status of a relationship type. It can be used to activate and deactivate relationship types by setting the is_active flag to 1 or 0 respectively. This is a stub method that does not perform any action at present other than return an HTTP 403 status'
       operationId: FirmstepRelationshipType_DeleteFirmStepRelationshipType
       consumes:
