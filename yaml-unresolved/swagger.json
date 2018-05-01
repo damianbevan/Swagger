@@ -598,6 +598,11 @@ definitions:
     description: 'A relationship object for a FirmStep contact. Used to provide a response object for a GET request. Note: Fields marked with TBC require further clarification on usage'
     required:
       - id
+      - is_permission_a_b
+      - relation
+      - relationship_type_id
+      - rtype
+      - start_date
     type: object
     properties:
       cid:
