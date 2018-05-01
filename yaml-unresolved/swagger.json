@@ -68,7 +68,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/Relationship_FirmStep'
+              $ref: '#/definitions/Relationship_FirmStep_Response'
         '400':
           description: The client request was incorrect or badly formed. Details of the error are returned within the ErrorResponse object.
           schema:
@@ -97,17 +97,12 @@ paths:
           description: ''
           required: true
           schema:
-            $ref: '#/definitions/Relationship_FirmStep_Audit'
+            $ref: '#/definitions/Relationship_FirmStep_Audit_Request'
       responses:
         '201':
           description: The relationship has been created. TBC - Awaiting confirmation of response definition.
           schema:
-            type: object
-            properties:
-              id:
-                description: The idenifier of the relationship created
-                type: integer
-                example: 170
+            $ref: '#/definitions/Relationship_FirmStep_Simple_Response'
         '400':
           description: The client request was incorrect or badly formed. Details of the error are returned within the ErrorResponse object.
           schema:
@@ -613,7 +608,7 @@ definitions:
         description: 'The new email address for the contact'
         type: string
         example: jonathan.dee@email.com
-  Relationship_FirmStep:
+  Relationship_FirmStep_Response:
     description: 'A relationship object for a FirmStep contact. Used to provide a response object for a GET request. Note: Fields marked with TBC require further clarification on usage'
     required:
       - id
@@ -695,7 +690,17 @@ definitions:
         description: "The start date of the relationship. If a value was not specified on creation then the value will be the date the relationship was created. TBC - date format changes when relationship is deactivated - need to confirm what happens if relationship has no start date."
         type: string
         example:
-  Relationship_FirmStep_Audit:
+  Relationship_FirmStep_Simple_Response:
+    description: 'A relationship object for a FirmStep contact. Used to provide a response object for a POST request.'
+    required:
+      - relationship_type_id
+    type: object
+    properties:
+      relationship_type_id:
+        description: "The Relationship Type Identifier."
+        type: string
+        example:
+  Relationship_FirmStep_Audit_Request:
     description: 'A relationship object with audit information for creating a relationship between an entity a and an entity b'
     required:
       - contact_id_a
