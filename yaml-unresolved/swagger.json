@@ -652,6 +652,7 @@ definitions:
       end_date:
         description: "End date of the relationship. The value for this field is returned in the format DD/MM/YYYY when a relationship is active and YYYY-MM-DD when the relationship is inactive. If no end_date value is set then this will return null."
         type: string
+        example: 2017-01-30
       id:
         description: "The Relationship Identifier"
         type: integer
