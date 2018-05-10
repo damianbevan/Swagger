@@ -189,7 +189,7 @@ paths:
         - FirmstepRelationshipType
       summary: Creates a Relationship Type.
       description: 'This method is used to create a new relationship type. When a relationship type is created the Relationship record status must be set to Active. This is a stub method that returns test data'
-      operationId: FirmstepRelationshipType_PostFirmstepRelationshipType
+      operationId: FirmstepRelationshipType_PostFirmstepRelationshipTypex
       consumes:
         - application/json
       produces:
