@@ -183,33 +183,6 @@ paths:
           description: A client (4xx) or server (5xx) error has occured. Details of the error are returned within the ErrorResponse object.
           schema:
             $ref: '#/definitions/ErrorResponse'
-  /api/v1/published/FirmstepRelationshipTypes/x:
-    post:
-      tags:
-        - FirmstepRelationshipType
-      summary: Creates a Relationship Type.
-      description: 'This method is used to create a new relationship type. When a relationship type is created the Relationship record status must be set to Active. This is a stub method that returns test datax'
-      operationId: FirmstepRelationshipType_PostFirmstepRelationshipTypex
-      consumes:
-        - application/json
-      produces:
-        - application/json
-      parameters:
-        - name: firmstep_relationshiptype_audit
-          in: body
-          description: ''
-          required: true
-          schema:
-            $ref: '#/definitions/RelationshipType_FirmStep_Audit_Request'
-      responses:
-        '201':
-          description: The relationship type has been created. TBC - Awaiting confirmation of response definition.
-          schema:
-            $ref: '#/definitions/RelationshipType_FirmStep_Response'
-        default:
-          description: A client (4xx) or server (5xx) error has occured. Details of the error are returned within the ErrorResponse object.
-          schema:
-            $ref: '#/definitions/ErrorResponse'
   /api/v1/published/FirmstepRelationshipTypes/{ID}/ToggleStatus:
     post:
       tags:
