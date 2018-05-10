@@ -187,9 +187,9 @@ paths:
     post:
       tags:
         - FirmstepRelationshipType
-      summary: Creates a Relationship Typex.
+      summary: Creates a Relationship Type.
       description: 'This method is used to create a new relationship type. When a relationship type is created the Relationship record status must be set to Active. This is a stub method that returns test data'
-      operationId: FirmstepRelationshipType_PostFirmstepRelationshipTypex
+      operationId: FirmstepRelationshipType_PostFirmstepRelationshipType
       consumes:
         - application/json
       produces:
@@ -202,8 +202,10 @@ paths:
           schema:
             $ref: '#/definitions/RelationshipType_FirmStep_Audit_Request'
       responses:
-        '204':
-          description: Successful activation or deactivation. No Content
+        '201':
+          description: The relationship type has been created. TBC - Awaiting confirmation of response definition.
+          schema:
+            $ref: '#/definitions/RelationshipType_FirmStep_Response'
         default:
           description: A client (4xx) or server (5xx) error has occured. Details of the error are returned within the ErrorResponse object.
           schema:
