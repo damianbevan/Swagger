@@ -188,7 +188,7 @@ paths:
       tags:
         - FirmstepRelationshipType
       summary: 'Activate and Deactive a Relationship Type'
-      description: 'This method is to be used to toggle the status of a relationship between activated and deactivated. If the Relationship Type status is active it will be toggled to inactive and vice versa. This method is neither idempotent nor safe so must be used with caution.'
+      description: 'This method is used to toggle the status of a relationship between active and inactive. If the Relationship Type status is active it will be toggled to inactive and vice versa. This method is not idempotent so must be used with caution.'
       operationId: FirmstepRelationshipType_DeleteFirmStepRelationshipType
       consumes:
         - application/json
@@ -200,11 +200,6 @@ paths:
           description: 'The Relationship Type identifier'
           required: true
           type: integer
-        - name: is_active
-          in: query
-          description: "A flag to identify whether the relationship type is active or inactive. Possible values are 0 to deactivate a relationship type and 1 to reactivate a relationship type."
-          required: true
-          type: boolean
         - name: customerName
           in: query
           description: 'Name of the contact being acted upon'
@@ -227,7 +222,7 @@ paths:
           type: string
       responses:
         '204':
-          description: Successful activation of deactivation. No Content
+          description: Successful activation or deactivation. No Content
         default:
           description: A client (4xx) or server (5xx) error has occured. Details of the error are returned within the ErrorResponse object.
           schema:
