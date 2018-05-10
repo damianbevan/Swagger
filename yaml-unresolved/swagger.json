@@ -224,7 +224,7 @@ paths:
           in: body
           schema:
             type: string
-          required: false
+          required: true
       responses:
         '204':
           description: Successful activation or deactivation. No Content
