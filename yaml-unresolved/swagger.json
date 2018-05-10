@@ -202,7 +202,7 @@ paths:
           schema:
             $ref: '#/definitions/RelationshipType_FirmStep_Audit_Request'
       responses:
-        '204':
+        '201':
           description: The relationship type has been created. TBC - Awaiting confirmation of response definition.
           schema:
             $ref: '#/definitions/RelationshipType_FirmStep_Response'
