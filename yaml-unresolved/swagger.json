@@ -220,12 +220,6 @@ paths:
           description: 'Source system making the change'
           required: false
           type: string
-        - name: x
-          in: body
-          schema:
-            type: string
-            example: x
-          required: true
       responses:
         '204':
           description: Successful activation or deactivation. No Content
