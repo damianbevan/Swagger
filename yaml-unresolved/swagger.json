@@ -183,12 +183,12 @@ paths:
           description: A client (4xx) or server (5xx) error has occured. Details of the error are returned within the ErrorResponse object.
           schema:
             $ref: '#/definitions/ErrorResponse'
-  /api/v1/published/FirmstepRelationshipTypes/{ID}/active:
-    put:
+  /api/v1/published/FirmstepRelationshipTypes/{ID}/ToggleStatus:
+    post:
       tags:
         - FirmstepRelationshipType
       summary: 'Activate and Deactive a Relationship Type'
-      description: 'This method is to be used to update the active status of a relationship type. It can be used to activate and deactivate relationship types by setting the is_active flag to 1 or 0 respectively. This is a stub method that returns test data.'
+      description: 'This method is to be used to toggle the status of a relationship between activated and deactivated. If the Relationship Type status is active it will be toggled to inactive and vice versa. This method is neither idempotent nor safe so must be used with caution.'
       operationId: FirmstepRelationshipType_DeleteFirmStepRelationshipType
       consumes:
         - application/json
