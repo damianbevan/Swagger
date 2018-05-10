@@ -710,11 +710,11 @@ definitions:
         example: 1
       id:
         description: "The Relationship Identifier."
-        type: string
+        type: integer
         example: 170
       moreIDs:
         description: "The Relationship Identifier."
-        type: string
+        type: integer
         example: 170
   Relationship_FirmStep_Audit_Request:
     description: 'A relationship object with audit information for creating a relationship between a contact a and a contact b'
