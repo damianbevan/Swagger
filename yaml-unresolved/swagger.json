@@ -902,4 +902,4 @@ definitions:
         example: 'The required request parameter xyz was not provided'
 # Added by API Auto Mocking Plugin
 host: virtserver.swaggerhub.com
-basePath: /SoJ_FS1/SoJ_Firmstep/v1
+basePath: /SoJ_FS2/SoJ_Firmstep/v1
