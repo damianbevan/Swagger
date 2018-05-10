@@ -69,7 +69,7 @@ paths:
       tags:
         - FirmstepRelationship
       summary: Creates a Relationship between two contacts.
-      description: "Creates a relationship between two contacts. This is a stub method that does not perform any action at present other than to return a HTTP 403 status code."
+      description: "Creates a relationship between two contacts. This is a stub method that returns test data."
       operationId: FirmstepRelationship_PostFirmstepRelationship
       consumes:
         - application/json
@@ -96,7 +96,7 @@ paths:
       tags:
         - FirmstepRelationship
       summary: 'Delete the relationship for the given relationship identifier'
-      description: 'Delete a relationship for a given relationship identifier. This is a stub method that does not perform any action at present other than return an HTTP 403 status.'
+      description: 'Delete a relationship for a given relationship identifier. This is a stub method that returns test data'
       operationId: FirmstepRelationship_DeleteFirmStepRelationship
       consumes: []
       produces:
@@ -161,7 +161,7 @@ paths:
       tags:
         - FirmstepRelationshipType
       summary: Creates a Relationship Type.
-      description: 'This method is used to create a new relationship type. When a relationship type is created the is_active field will default to 1. This is a stub method that does not perform any action at present other than to return a HTTP 403 status code'
+      description: 'This method is used to create a new relationship type. When a relationship type is created the Relationship record status must be set to Active. This is a stub method that returns test data'
       operationId: FirmstepRelationshipType_PostFirmstepRelationshipType
       consumes:
         - application/json
@@ -188,7 +188,7 @@ paths:
       tags:
         - FirmstepRelationshipType
       summary: 'Activate and Deactive a Relationship Type'
-      description: 'This method is to be used to update the active status of a relationship type. It can be used to activate and deactivate relationship types by setting the is_active flag to 1 or 0 respectively. This is a stub method that does not perform any action at present other than return an HTTP 403 status'
+      description: 'This method is to be used to update the active status of a relationship type. It can be used to activate and deactivate relationship types by setting the is_active flag to 1 or 0 respectively. This is a stub method that returns test data.'
       operationId: FirmstepRelationshipType_DeleteFirmStepRelationshipType
       consumes:
         - application/json
@@ -791,39 +791,39 @@ definitions:
         type: string
         example: Child of
       label_a_b:
-        description: "TBC - This is not in the Create so how can it be returned?"
+        description: "Same as name_a_b"
         type: string
-        example: ???
+        example: Child of
       name_b_a:
         description: "The name of the relationship from the perspective of entity b."
         type: string
-        example: Parent of 
+        example: Parent of
       label_b_a:
-        description: "TBC - This is not in the Create so how can it be returned?"
+        description: "Same as name_b_a"
         type: string
-        example: ???
+        example: Parent of
       description:
         description: "A description of the relationship type."
         type: string
         example: "Parent/Child relationship"
       contact_type_a:
-        description: "The contact type for entity a. TBC - Possible values are ? or ?"
+        description: "The contact type for entity a. Possible values are Individual or Business"
         type: string
-        example: Individual
+        enum:
+          - Individual
+          - Business
       contact_type_b:
-        description: "The contact type for entity b. TBC - Possible values are ? or ?"
+        description: "The contact type for entity b. Possible values are Individual or Business"
         type: string
-        example: Individual
-      is_reserved:
-        description: "Indicates the relationship type is reserved. Possible values are 0 for not reserved and 1 for reserved. TBC - confirm boolean values.TBC - what is reserved?"
-        type: boolean
-        example: 0
+        enum:
+          - Individual
+          - Business
       is_active:
-        description: "Inidicated the relationship type. Possible values are 0 for inactive and 1 for active. TBC - confirm boolean values."
+        description: "Inidicates whether the relationship type is currently active. Possible values are 0 for inactive and 1 for active."
         type: boolean
         example: 0
       count:
-        description: "Total number of times the relationship type has been used."
+        description: "Total number of times the relationship type has been used for a relationship."
         type: integer
         example: 1
   RelationshipType_FirmStep_Audit:
@@ -864,17 +864,17 @@ definitions:
         type: string
         example: "Parent/Child relationship"
       contact_type_a:
-        description: "The contact type for entity a. Possible values are ? or ?"
+        description: "The contact type for entity a. Possible values are Individual or Business"
         type: string
-        example: Individual
+        enum:
+          - Individual
+          - Business
       contact_type_b:
-        description: "The contact type for entity b. Possible values are ? or ?"
+        description: "The contact type for entity b. Possible values are Individual or Business"
         type: string
-        example: Individual
-      is_active:
-        description: "A flag to identify whether the relationship type is active or inactive. Defaults to 1 when creating a relationship type. Possible values are 0 for an inactive relationship type and 1 for an active relationship type."
-        type: boolean
-        example: 1
+        enum:
+          - Individual
+          - Business
   ErrorResponse:
     required:
       - "status_code"
