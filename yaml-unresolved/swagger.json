@@ -200,26 +200,12 @@ paths:
           description: 'The Relationship Type identifier'
           required: true
           type: integer
-        - name: customerName
-          in: query
-          description: 'Name of the contact being acted upon'
-          required: false
-          type: string
-        - name: domainUser
-          in: query
-          description: 'Name of the user making the change'
-          required: false
-          type: string
-        - name: ipAddress
-          in: query
-          description: 'IP Address of the user making the change'
-          required: false
-          type: string
-        - name: source
-          in: query
-          description: 'Source system making the change'
-          required: false
-          type: string
+        - name: firmstep_relationshiptype_simple_audit
+          in: body
+          description: ''
+          required: true
+          schema:
+            $ref: '#/definitions/RelationshipType_FirmStep_Simple_Audit_Request'
       responses:
         '204':
           description: Successful activation or deactivation. No Content
@@ -831,6 +817,28 @@ definitions:
         description: "Total number of times the relationship type has been used for a relationship."
         type: integer
         example: 1
+  RelationshipType_FirmStep_Simple_Audit_Request:
+    description: 'A relationship type object with only audit information used for toggling a relationship type active status.'
+    type: object
+    properties:
+      customerName:
+        description: 'Name of the Contact being acted upon'
+        type: string
+        example: Jane Doe
+      domainUser:
+        description: 'Name of the user making the change'
+        type: string
+        example: John Smith
+      ipAddress:
+        description: 'IP Address of the user making the change'
+        type: string
+        example: 123.45.67.89
+      source:
+        description: 'Source system making the change'
+        type: string
+        example: firmstep
+        enum:
+          - firmstep
   RelationshipType_FirmStep_Audit_Request:
     description: 'A relationship type object with audit information used for creating and updating relationship types.'
     required:
