@@ -84,7 +84,7 @@ paths:
             $ref: '#/definitions/Relationship_FirmStep_Audit_Request'
       responses:
         '201':
-          description: The relationship has been created. TBC - Awaiting confirmation of response definition.
+          description: The relationship has been created.
           schema:
             $ref: '#/definitions/Relationship_FirmStep_Simple_Response'
         default:
@@ -129,7 +129,7 @@ paths:
           type: string
       responses:
         '201':
-          description: The relationship has been deleted. TBC - Awaiting confirmation of response definition.
+          description: The relationship has been deleted.
           schema:
             $ref: '#/definitions/Relationship_FirmStep_Simple_Response'
         default:
@@ -176,7 +176,7 @@ paths:
             $ref: '#/definitions/RelationshipType_FirmStep_Audit_Request'
       responses:
         '201':
-          description: The relationship type has been created. TBC - Awaiting confirmation of response definition.
+          description: The relationship type has been created.
           schema:
             $ref: '#/definitions/RelationshipType_FirmStep_Response'
         default:
@@ -638,7 +638,7 @@ definitions:
       end_date:
         description: "End date of the relationship. The value for this field is returned in the format DD/MM/YYYY when a relationship is active and YYYY-MM-DD when the relationship is inactive. If no end_date value is set then this will return null."
         type: string
-        example: 2017-01-30
+        example: "2017-01-30"
       id:
         description: "The Relationship Identifier"
         type: integer
@@ -656,7 +656,7 @@ definitions:
         type: string
         example: 1
       name: 
-        description: "Display name for the target. TBC - this appears to be a duplicate of display_name"
+        description: "Same as display_name"
         type: string
         example: Mr John Doe
       phone:
@@ -679,9 +679,9 @@ definitions:
           - a_b
           - b_a
       start_date:
-        description: "The start date of the relationship. If a value was not specified on creation then the value will be the date the relationship was created. TBC - does date format changes when relationship is deactivated?"
+        description: "The start date of the relationship. If a value was not specified on creation then the value will be the date the relationship was created."
         type: string
-        example: 30/12/2018
+        example: "2018-01-28"
   Relationship_FirmStep_Simple_Response:
     description: 'A simple object for a FirmStep relationship. Used to provide a response object for a Relationship POST or DELETE request. Due to limitations in the Firmstep platform some field values are duplicated.'
     required:
@@ -691,7 +691,7 @@ definitions:
     type: object
     properties:
       count:
-        description: "The number of entries affected by the request. TBC - will always be 1?"
+        description: "The number of entries affected by the request. Will always be 1."
         type: integer
         example: 1
       id:
