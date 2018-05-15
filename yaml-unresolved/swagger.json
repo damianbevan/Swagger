@@ -11,6 +11,142 @@ securityDefinitions:
 security: 
 - BasicSecurity: []
 paths:
+  /api/v1/published/FirmstepPerson/Search:
+    get:
+      tags:
+        - FirmstepPerson
+      summary: 'Fetches a Person resource using the searchString.  If searchString starts with "ucrn:" search will be by UCRN.'
+      operationId: FirmstepPerson_GetFirmStepPeopleWithSearch
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: searchString
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: customerName
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: domainUser
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: ipAddress
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: source
+          in: query
+          description: ''
+          required: false
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Person_Firmstep'
+  /api/v1/published/FirmstepPerson:
+    post:
+      tags:
+        - FirmstepPerson
+      summary: Create Person in People Directory
+      operationId: FirmstepPerson_PostFirmStepPerson
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces: []
+      parameters:
+        - name: firmstep_person
+          in: body
+          description: ''
+          required: true
+          schema:
+            $ref: '#/definitions/Person_Firmstep'
+      responses:
+        '204':
+          description: No Content
+    delete:
+      tags:
+        - FirmstepPerson
+      summary: ''
+      operationId: FirmstepPerson_DeleteFirmStepXref
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: UCRN
+          in: query
+          description: ''
+          required: true
+          type: string
+        - name: customerName
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: domainUser
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: ipAddress
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: source
+          in: query
+          description: ''
+          required: false
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: boolean
+  '/api/v1/published/FirmstepPerson/{UCRN}':
+    put:
+      tags:
+        - FirmstepPerson
+      summary: Updates a Person resource using its UCRN
+      operationId: FirmstepPerson_PatchFirmStepPerson
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces: []
+      parameters:
+        - name: UCRN
+          in: path
+          description: ''
+          required: true
+          type: string
+        - name: firmstep_person
+          in: body
+          description: ''
+          required: true
+          schema:
+            $ref: '#/definitions/Person_Firmstep'
+      responses:
+        '204':
+          description: No Content
   /api/v1/published/FirmstepAudit/:
     get:
       tags:
@@ -244,6 +380,76 @@ paths:
           schema:
             $ref: '#/definitions/ErrorResponse'
 definitions:
+  Person_Firmstep:
+    type: object
+    properties:
+      customerName:
+        type: string
+      domainUser:
+        type: string
+      ipAddress:
+        type: string
+      source:
+        type: string
+      first_name:
+        type: string
+      last_name:
+        type: string
+      email_addresses:
+        pattern: '^[\w!#$%&''*+\-/=?\^_`{|}~]+(\.[\w!#$%&''*+\-/=?\^_`{|}~]+)*@((([\-\w]+\.)+[a-zA-Z]{2,4})|(([0-9]{1,3}\.){3}[0-9]{1,3}))$'
+        type: string
+      contact_type:
+        type: string
+      phone_numbers:
+        type: string
+      phone_type_ids:
+        type: string
+      birth_date:
+        type: string
+      prefix_id:
+        type: string
+      gender_id:
+        type: string
+      address_house:
+        type: string
+      address_postcode:
+        maxLength: 9
+        minLength: 1
+        type: string
+      address_street:
+        type: string
+      address_town:
+        type: string
+      address_county:
+        type: string
+      address_locality:
+        type: string
+      address_country:
+        type: string
+      address_ward:
+        type: string
+      address_uprn:
+        type: string
+      address_geo_code_1:
+        type: string
+      address_geo_code_2:
+        type: string
+      address_start_date:
+        type: string
+      address_end_date:
+        type: string
+      address_ids:
+        type: string
+      location_type_id:
+        type: string
+      preferred_contact_method:
+        type: string
+      consent_to_share:
+        type: string
+      ucrn:
+        type: string
+      csa:
+        type: string
   Audit_FirmStep_Response:
     description: 'An audit object for a FirmStep contact.'
     required:
