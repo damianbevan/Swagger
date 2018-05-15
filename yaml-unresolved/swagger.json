@@ -489,14 +489,14 @@ definitions:
         enum:
           - 1
           - 2
-        example: 1
+        example: "1"
       gender_id_to:
         description: 'The new gender ID for the contact. Possible values are 1 for Female and 2 for Male. Gender IDs are defined within the CiviVars at https://firmstep-kb.cms-live.firmstep.com/third-party-integrations/integrations-3rd-party/ci-get-civi-vars'
         type: string
         enum:
           - 1
           - 2
-        example: 2
+        example: "2"
       contact_type_from:
         description: 'The original type for the contact. Possible values are Individual or Business'
         type: string
@@ -522,7 +522,7 @@ definitions:
       preferred_contact_method_from:
         description: 'The original preferred contact method ID for the contact. Possible values are 1, 2, 3 or 4 for phone, mobile, email and post respectively. Contact methods are defined within the CiviVars at https://firmstep-kb.cms-live.firmstep.com/third-party-integrations/integrations-3rd-party/ci-get-civi-vars'
         type: string
-        example: 1
+        example: "1"
         enum:
           - 1
           - 2
@@ -531,7 +531,7 @@ definitions:
       preferred_contact_method_to:
         description: 'The new preferred contact method ID for the contact. Possible values are 1, 2, 3 or 4 for phone, mobile, email and post respectively. Contact methods are defined within the CiviVars at https://firmstep-kb.cms-live.firmstep.com/third-party-integrations/integrations-3rd-party/ci-get-civi-vars'
         type: string
-        example: 2
+        example: "2"
         enum:
           - 1
           - 2
@@ -540,35 +540,35 @@ definitions:
       ss_account_from:
         description: 'The original flag to indicate whether the contact had a self account'
         type: string
-        example: No
+        example: "No"
         enum:
           - No
           - Yes
       ss_account_to:
         description: 'The new flag to indicate whether the contact has a self account'
         type: string
-        example: Yes
+        example: "Yes"
         enum:
           - No
           - Yes
       consent_to_share__from:
         description: 'The original consent to share flag. Possible values are 0 or 1 for no consent and consent given respectively'
         type: string
-        example: 0
+        example: "0"
         enum:
           - 0
           - 1
       consent_to_share__to:
         description: 'The new consent to share flag. Possible values are 0 or 1 for no consent and consent given respectively'
         type: string
-        example: 1
+        example: "1"
         enum:
           - 0
           - 1
       status_from:
         description: 'The original status of the contact. Possible values are New, Approved, Changed, Deceased and Historic. Status are defined within the CiviVars at https://firmstep-kb.cms-live.firmstep.com/third-party-integrations/integrations-3rd-party/ci-get-civi-vars'
         type: string
-        example: New
+        example: "New"
         enum:
           - New
           - Aproved
@@ -578,7 +578,7 @@ definitions:
       status_to:
         description: 'The new status of the contact. Possible values are New, Approved, Changed, Deceased and Historic. Status are defined within the CiviVars at https://firmstep-kb.cms-live.firmstep.com/third-party-integrations/integrations-3rd-party/ci-get-civi-vars'
         type: string
-        example: Approved
+        example: "Approved"
         enum:
           - New
           - Aproved
@@ -588,28 +588,28 @@ definitions:
       is_deceased_from:
         description: 'The original flag to indicate whether the contact is deceased. Possible values are 0 or 1 for contact is not or is deceased respectively'
         type: string
-        example: 0
+        example: "0"
         enum:
           - 0
           - 1
       is_deceased_to:
         description: 'The new flag to indicate whether the contact is deceased. Possible values are 0 or 1 for contact is not or is deceased respectively'
         type: string
-        example: 1
+        example: "1"
         enum:
           - 0
           - 1
       is_deleted_from:
         description: 'The original flag to indicate whether the contact is deleted. Possible values are 0 or 1 for contact is not or is deleted respectively'
         type: string
-        example: 0
+        example: "0"
         enum: 
           - 0
           - 1
       is_deleted_to:
         description: 'The new flag to indicate whether the contact is deleted. Possible values are 0 or 1 for contact is not or is deleted respectively'
         type: string
-        example: 0
+        example: "0"
         enum: 
           - 0
           - 1
@@ -627,72 +627,72 @@ definitions:
         description: 'The original flat number for each address'
         type: string
         format: CSV
-        example: A,7
+        example: "A,7"
       address_flat_to:
         description: 'The new flat number for each address'
         type: string
         format: CSV
-        example: B,8
+        example: "B,8"
       address_postcode_from:
         description: 'The original postcode for each address'
         type: string
         format: CSV
-        example: AB12 3CD, EC2A 2DT
+        example: "AB12 3CD, EC2A 2DT"
       address_postcode_to:
         description: 'The new postcode for each address'
         type: string
         format: CSV
-        example: AB12 4CD,EC2A 3DT
+        example: "AB12 4CD,EC2A 3DT"
       address_post_town_from:
         description: 'The original post town for each address'
         type: string
         format: CSV
-        example: London,London
+        example: "London,London"
       address_post_town_to:
         description: 'The new post town for each address'
         type: string
         format: CSV
-        example: Bristol,Bristol
+        example: "Bristol,Bristol"
       address_street_from:
         description: 'The original street for each address'
         type: string
         format: CSV
-        example: Old Street, Worship Street
+        example: "Old Street, Worship Street"
       address_street_to:
         description: 'The new street for each address'
         type: string
         format: CSV
-        example: New Street, Church Street
+        example: "New Street, Church Street"
       address_town_from:
         description: 'The original town for each address'
         type: string
         format: CSV
-        example: London,London
+        example: "London,London"
       address_town_to:
         description: 'The new town for each address'
         type: string
         format: CSV
-        example: Bristol,Bristol
+        example: "Bristol,Bristol"
       address_county_from:
         description: 'The original county for each address'
         type: string
         format: CSV
-        example: London,London
+        example: "London,London"
       address_county_to:
         description: 'The new county for each address'
         type: string
         format: CSV
-        example: Avon,Avon
+        example: "Avon,Avon"
       address_locality_from:
         description: 'The original locality for each address'
         type: string
         format: CSV
-        example: London,London
+        example: "London,London"
       address_locality_to:
         description: 'The new locality for each address'
         type: string
         format: CSV
-        example: Bristol,Bristol
+        example: "Bristol,Bristol"
       address_ward_from:
         description: 'The original ward for each address'
         type: string
@@ -705,133 +705,133 @@ definitions:
         description: 'The original unique postal reference number (UPRN) for each address'
         type: string
         format: CSV
-        example: 12345,67890
+        example: "12345,67890"
       address_uprn_to:
         description: 'The new unique postal reference number (UPRN) for each address'
         type: string
         format: CSV
-        example: 54321,09876
+        example: "54321,09876"
       address_geo_code_1_from:
         description: 'The original longitude for each address'
         type: string
         format: CSV
-        example: -1.086015,-0.086015
+        example: "-1.086015,-0.086015"
       address_geo_code_1_to:
         description: 'The new longitude for each address'
         type: string
         format: CSV
-        example: -1.086016,-0.086016
+        example: "-1.086016,-0.086016"
       address_geo_code_2_from:
         description: 'The original latitude for each address'
         type: string
         format: CSV
-        example: 50.522402,51.522402
+        example: "50.522402,51.522402"
       address_geo_code_2_to:
         description: 'The new latitude for each address'
         type: string
         format: CSV
-        example: 50.522403,51.522403
+        example: "50.522403,51.522403"
       address_start_date__from:
         description: 'The original start date for each address. Date format is ISO 8601 (YYYY-MM-DD hh:mm:ss)'
         type: string
         format: CSV
-        example: 2017-12-25 00:00:00,2017-12-25 00:00:00
+        example: "2017-12-25 00:00:00,2017-12-25 00:00:00"
       address_start_date__to:
         description: 'The new start date for each address. Date format is ISO 8601 (YYYY-MM-DD hh:mm:ss)'
         type: string
         format: CSV
-        example: 2017-12-26 00:00:00,2017-12-26 00:00:00
+        example: "2017-12-26 00:00:00,2017-12-26 00:00:00"
       address_end_date__from:
         description: 'The original end date for each address. Date format is ISO 8601 (YYYY-MM-DD hh:mm:ss)'
         type: string
         format: CSV
-        example: 2017-12-25 00:00:00,2017-12-25 00:00:00
+        example: "2017-12-25 00:00:00,2017-12-25 00:00:00"
       address_end_date__to:
         description: 'The new end date for each address. Date format is ISO 8601 (YYYY-MM-DD hh:mm:ss)'
         type: string
         format: CSV
-        example: 2017-12-26 00:00:00,2017-12-26 00:00:00
+        example: "2017-12-26 00:00:00,2017-12-26 00:00:00"
       address_country_id_from:
         description: 'The original country ID for each address. Country definitions are available from https://firmstep-kb.cms-live.firmstep.com/third-party-integrations/integrations-3rd-party/ci-language-and-country'
         type: string
         format: CSV
-        example: 243,243
+        example: "243,243"
       address_country_id_to:
         description: 'The new country ID for each address. Country definitions are available from https://firmstep-kb.cms-live.firmstep.com/third-party-integrations/integrations-3rd-party/ci-language-and-country'
         type: string
         format: CSV
-        example: 244,244
+        example: "244,244"
       address_id:
         description: 'The IDs associated with each address'
         type: string
         format: CSV
-        example: 1,2
+        example: "1,2"
       address_primary_from:
         description: 'The original values to indicate the primary address. Possible values are 0 or 1 to indicate a non-primary and primary address respectively'
         type: string
         format: CSV
-        example: 1,0
+        example: "1,0"
       address_primary_to:
         description: 'The new values to indicate the primary address. Possible values are 0 or 1 to indicate a non-primary and primary address respectively'
         type: string
         format: CSV
-        example: 0,1
+        example: "0,1"
       first_name_from:
         description: 'The original first name of the contact'
         type: string
-        example: John
+        example: "John"
       first_name_to:
         description: 'The new first name of the contact'
         type: string
-        example: Jonathan
+        example: "Jonathan"
       middle_name_from:
         description: 'The original middle name of the contact'
         type: string
-        example: Bill
+        example: "Bill"
       middle_name_to:
         description: 'The new middle name of the contact'
         type: string
-        example: Billy
+        example: "Billy"
       last_name_from:
         description: 'The original last name of the contact'
         type: string
-        example: Doe
+        example: "Doe"
       last_name_to:
         description: 'The new last name of the contact'
         type: string
-        example: Dee
+        example: "Dee"
       prefix_id_from:
         description: 'The original prefix ID of the contact. Possible values are 1, 2, 3 or 4 for Mrs., Ms., Mr. or Dr. respectively. Prefix IDs are defined within the CiviVars at https://firmstep-kb.cms-live.firmstep.com/third-party-integrations/integrations-3rd-party/ci-get-civi-vars'
         type: string
-        example: 3
+        example: "3"
       prefix_id_to:
         description: 'The new prefix ID of the contact. Possible values are 1, 2, 3 or 4 for Mrs., Ms., Mr. or Dr. respectively. Prefix IDs are defined within the CiviVars at https://firmstep-kb.cms-live.firmstep.com/third-party-integrations/integrations-3rd-party/ci-get-civi-vars'
         type: string
-        example: 4
+        example: "4"
       suffix_id_from:
         description: 'The original suffix ID for the contact. Possible values are 1 or 2 for Jr. or Sr. respectively then increasing roman numerals from 3 onwards. Suffix IDs are defined within the CiviVars at https://firmstep-kb.cms-live.firmstep.com/third-party-integrations/integrations-3rd-party/ci-get-civi-vars'
         type: string
-        example: 1
+        example: "1"
       suffix_id_to:
         description: 'The new suffix ID for the contact. Possible values are 1 or 2 for Jr. or Sr. respectively then increasing roman numerals from 3 onwards. Suffix IDs are defined within the CiviVars at https://firmstep-kb.cms-live.firmstep.com/third-party-integrations/integrations-3rd-party/ci-get-civi-vars'
         type: string
-        example: 2
+        example: "2"
       display_name_from:
         description: 'The original display name for the contact generated by concatenating the title, firstname and lastname'
         type: string
-        example: Mr. John Doe
+        example: "Mr. John Doe"
       display_name_to:
         description: 'The new display name for the contact generated by concatenating the title, firstname and lastname'
         type: string
-        example: Dr. Jonathan Dee
+        example: "Dr. Jonathan Dee"
       email_from:
         description: 'The original email address for the contact'
         type: string
-        example: john.doe@email.com
+        example: "john.doe@email.com"
       email_to:
         description: 'The new email address for the contact'
         type: string
-        example: jonathan.dee@email.com
+        example: "jonathan.dee@email.com"
   Relationship_FirmStep_Response:
     description: 'A relationship object for a FirmStep contact. Used to provide a response object for a GET request. Due to limitations in the Firmstep platform some field values are duplicated.'
     required:
@@ -846,19 +846,19 @@ definitions:
       cid:
         description: "The UCRN of the contact the request relates to"
         type: string
-        example: 123
+        example: "123"
       civicrm_relationship_type_id:
         description: "The Relationship Type Identifier."
         type: string
-        example: 1
+        example: "1"
       contact_id_a:
         description: "The UCRN of the first_person in the Person Relationship."
         type: string
-        example: 456
+        example: "456"
       contact_id_b:
         description: "The UCRN of the second_person in the Person Relationship."
         type: string
-        example: 123
+        example: "123"
       description:
         description: "The description of the Relationship Type"
         type: string
@@ -866,11 +866,11 @@ definitions:
       display_name:
         description: "Display name for the person the request is not being made for. Generated by concatenating the title, firstname and lastname"
         type: string
-        example: Mr John Doe
+        example: "Mr John Doe"
       email:
         description: "Email address for the person the request is not being made for."
         type: string
-        example: john.doe@email.com
+        example: "john.doe@email.com"
       end_date:
         description: "End date of the relationship. The value for this field is returned in the format DD/MM/YYYY when a relationship is active and YYYY-MM-DD when the relationship is inactive. If no end_date value is set then this will return null."
         type: string
@@ -878,39 +878,39 @@ definitions:
       id:
         description: "The Relationship Identifier"
         type: string
-        example: 170
+        example: "170"
       is_active:
         description: "Indicates whether the relationship is active or inactive. Possible values are 0 for inactive and 1 for active. Returns 1 if record status == Active and (end_date is after current date or is not set). Otherwise returns 0."
         type: string
-        example: 1
+        example: "1"
       is_permission_a_b:
         description: "Inidcates whether the first_person has permission to view the relationship. Possible values are 0 for no permissions and 1 for has permission."
         type: string
-        example: 1
+        example: "1"
       is_permission_b_a:
         description: "Inidcates whether the second_person has permission to view the relationship. Possible values are 0 for no permissions and 1 for has permission."
         type: string
-        example: 1
+        example: "1"
       name: 
         description: "Same as display_name"
         type: string
-        example: Mr John Doe
+        example: "Mr John Doe"
       phone:
         description: "Primary phone number for the person the request is not being made for."
         type: string
-        example: 07123123123
+        example: "07123123123"
       relation:
         description: "Name of the relationship from the perspective of the person the request is being made for."
         type: string
-        example: Child of
+        example: "Child of"
       relationship_type_id:
         description: "The Relationship Type Identifier."
         type: string
-        example: 1
+        example: "1"
       rtype:
         description: "The direction of the relationship between entities. Direction will be either a to b (a_b) or b to a (b_a). The direction of the relationship is determined from the value of the field holding the searched UCRN value. If UCRN is equal to first_person then a_b otherwise b_a."
         type: string
-        example: a_b
+        example: "a_b"
         enum:
           - a_b
           - b_a
@@ -929,15 +929,15 @@ definitions:
       count:
         description: "The number of entries affected by the request. Will always be 1."
         type: string
-        example: 1
+        example: "1"
       id:
         description: "The Relationship Identifier."
         type: string
-        example: 170
+        example: "170"
       moreIDs:
         description: "The Relationship Identifier."
         type: string
-        example: 170
+        example: "170"
   Relationship_FirmStep_Audit_Request:
     description: 'A relationship object with audit information for creating a relationship between a contact a and a contact b'
     required:
@@ -949,33 +949,33 @@ definitions:
       customerName:
         description: 'Name of the user making the change or Contact being acted upon'
         type: string
-        example: Jane Doe
+        example: "Jane Doe"
       domainUser:
         description: 'Name of the user making the change'
         type: string
-        example: John Smith
+        example: "John Smith"
       ipAddress:
         description: "IP Address of the user's client making the change"
         type: string
-        example: 123.45.67.89
+        example: "123.45.67.89"
       source:
         description: 'Source system making the change'
         type: string
-        example: firmstep
+        example: "firmstep"
         enum:
           - firmstep
       contact_id_a:
         description: "The UCRN of the first_person in the Person Relationship."
         type: string
-        example: 3004
+        example: "3004"
       contact_id_b:
         description: "The UCRN of the second_person in the Person Relationship"
         type: string
-        example: 3005
+        example: "3005"
       relationship_type_id:
         description: 'The Relationship Type Identifier'
         type: string
-        example: 4
+        example: "4"
       start_date:
         description: 'Start date of the relationship. If no start date is specified then todays date will be used. Date format is ISO 8601 (YYYY-MM-DD)'
         type: string
@@ -989,15 +989,15 @@ definitions:
       is_active:
         description: 'Set the relationship to active. Set to 1 for active or 0 for inactive'
         type: string
-        example: 1
+        example: "1"
       is_permission_a_b:
         description: 'Set permission for contact_id_a to view the relationship. Set to 1 to allow permission and 0 to not allow permission. '
         type: string
-        example: 1
+        example: "1"
       is_permission_b_a:
         description: 'Set permission for contact_id_b to view the relationship. Set to 1 to allow permission and 0 to not allow permission. '
         type: string
-        example: 1
+        example: "1"
   RelationshipType_FirmStep_Response:
     description: 'A relationship type object response for a Get request defining a relationship type. Due to limitations in the Firmstep platform some field values are duplicated.'
     required:
@@ -1012,23 +1012,23 @@ definitions:
       id:
         description: "The relationship type identifier"
         type: string
-        example: 123
+        example: "123"
       name_a_b:
         description: "The name of the relationship from the perspective of entity a."
         type: string
-        example: Child of
+        example: "Child of"
       label_a_b:
         description: "Same as name_a_b"
         type: string
-        example: Child of
+        example: "Child of"
       name_b_a:
         description: "The name of the relationship from the perspective of entity b."
         type: string
-        example: Parent of
+        example: "Parent of"
       label_b_a:
         description: "Same as name_b_a"
         type: string
-        example: Parent of
+        example: "Parent of"
       description:
         description: "A description of the relationship type."
         type: string
@@ -1048,11 +1048,11 @@ definitions:
       is_active:
         description: "Inidicates whether the relationship type is currently active. Possible values are 0 for inactive and 1 for active."
         type: string
-        example: 0
+        example: "0"
       count:
         description: "Total number of times the relationship type has been used for a relationship."
         type: string
-        example: 1
+        example: "1"
   RelationshipType_FirmStep_Simple_Audit_Request:
     description: 'A relationship type object with only audit information used for toggling a relationship type active status.'
     type: object
@@ -1060,19 +1060,19 @@ definitions:
       customerName:
         description: 'Name of the Contact being acted upon'
         type: string
-        example: Jane Doe
+        example: "Jane Doe"
       domainUser:
         description: 'Name of the user making the change'
         type: string
-        example: John Smith
+        example: "John Smith"
       ipAddress:
         description: 'IP Address of the user making the change'
         type: string
-        example: 123.45.67.89
+        example: "123.45.67.89"
       source:
         description: 'Source system making the change'
         type: string
-        example: firmstep
+        example: "firmstep"
         enum:
           - firmstep
   RelationshipType_FirmStep_Audit_Request:
@@ -1085,29 +1085,29 @@ definitions:
       customerName:
         description: 'Name of the Contact being acted upon'
         type: string
-        example: Jane Doe
+        example: "Jane Doe"
       domainUser:
         description: 'Name of the user making the change'
         type: string
-        example: John Smith
+        example: "John Smith"
       ipAddress:
         description: 'IP Address of the user making the change'
         type: string
-        example: 123.45.67.89
+        example: "123.45.67.89"
       source:
         description: 'Source system making the change'
         type: string
-        example: firmstep
+        example: "firmstep"
         enum:
           - firmstep
       name_a_b:
         description: "The name of the relationship from the perspective of entity a."
         type: string
-        example: Child of
+        example: "Child of"
       name_b_a:
         description: "The name of the relationship from the perspective of entity b."
         type: string
-        example: Parent of
+        example: "Parent of"
       description:
         description: "A description of the relationship type."
         type: string
@@ -1115,12 +1115,14 @@ definitions:
       contact_type_a:
         description: "The contact type for entity a. Possible values are Individual or Business"
         type: string
+        example: "Individual"
         enum:
           - Individual
           - Business
       contact_type_b:
         description: "The contact type for entity b. Possible values are Individual or Business"
         type: string
+        example: "Individual"
         enum:
           - Individual
           - Business
@@ -1131,7 +1133,7 @@ definitions:
       status_code:
         type: string
         description: 'The HTTP status relating to the error e.g. 400'
-        example: 400
+        example: '400'
       status_message:
         type: string
         description: 'The HTTP message relating to the status code e.g. for a 400 status the message should be Bad Request'
