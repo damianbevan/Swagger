@@ -485,14 +485,14 @@ definitions:
         example: '1980-11-24'
       gender_id_from:
         description: 'The original gender ID for the contact. Possible values are 1 for Female and 2 for Male. Gender IDs are defined within the CiviVars at https://firmstep-kb.cms-live.firmstep.com/third-party-integrations/integrations-3rd-party/ci-get-civi-vars'
-        type: integer
+        type: string
         enum:
           - 1
           - 2
         example: 1
       gender_id_to:
         description: 'The new gender ID for the contact. Possible values are 1 for Female and 2 for Male. Gender IDs are defined within the CiviVars at https://firmstep-kb.cms-live.firmstep.com/third-party-integrations/integrations-3rd-party/ci-get-civi-vars'
-        type: integer
+        type: string
         enum:
           - 1
           - 2
@@ -521,7 +521,7 @@ definitions:
         example: 'en_US'
       preferred_contact_method_from:
         description: 'The original preferred contact method ID for the contact. Possible values are 1, 2, 3 or 4 for phone, mobile, email and post respectively. Contact methods are defined within the CiviVars at https://firmstep-kb.cms-live.firmstep.com/third-party-integrations/integrations-3rd-party/ci-get-civi-vars'
-        type: integer
+        type: string
         example: 1
         enum:
           - 1
@@ -530,7 +530,7 @@ definitions:
           - 4
       preferred_contact_method_to:
         description: 'The new preferred contact method ID for the contact. Possible values are 1, 2, 3 or 4 for phone, mobile, email and post respectively. Contact methods are defined within the CiviVars at https://firmstep-kb.cms-live.firmstep.com/third-party-integrations/integrations-3rd-party/ci-get-civi-vars'
-        type: integer
+        type: string
         example: 2
         enum:
           - 1
@@ -587,28 +587,28 @@ definitions:
           - Historic
       is_deceased_from:
         description: 'The original flag to indicate whether the contact is deceased. Possible values are 0 or 1 for contact is not or is deceased respectively'
-        type: integer
+        type: string
         example: 0
         enum:
           - 0
           - 1
       is_deceased_to:
         description: 'The new flag to indicate whether the contact is deceased. Possible values are 0 or 1 for contact is not or is deceased respectively'
-        type: integer
+        type: string
         example: 1
         enum:
           - 0
           - 1
       is_deleted_from:
         description: 'The original flag to indicate whether the contact is deleted. Possible values are 0 or 1 for contact is not or is deleted respectively'
-        type: integer
+        type: string
         example: 0
         enum: 
           - 0
           - 1
       is_deleted_to:
         description: 'The new flag to indicate whether the contact is deleted. Possible values are 0 or 1 for contact is not or is deleted respectively'
-        type: integer
+        type: string
         example: 0
         enum: 
           - 0
@@ -877,7 +877,7 @@ definitions:
         example: "2017-01-30"
       id:
         description: "The Relationship Identifier"
-        type: integer
+        type: string
         example: 170
       is_active:
         description: "Indicates whether the relationship is active or inactive. Possible values are 0 for inactive and 1 for active. Returns 1 if record status == Active and (end_date is after current date or is not set). Otherwise returns 0."
@@ -928,15 +928,15 @@ definitions:
     properties:
       count:
         description: "The number of entries affected by the request. Will always be 1."
-        type: integer
+        type: string
         example: 1
       id:
         description: "The Relationship Identifier."
-        type: integer
+        type: string
         example: 170
       moreIDs:
         description: "The Relationship Identifier."
-        type: integer
+        type: string
         example: 170
   Relationship_FirmStep_Audit_Request:
     description: 'A relationship object with audit information for creating a relationship between a contact a and a contact b'
@@ -974,7 +974,7 @@ definitions:
         example: 3005
       relationship_type_id:
         description: 'The Relationship Type Identifier'
-        type: integer
+        type: string
         example: 4
       start_date:
         description: 'Start date of the relationship. If no start date is specified then todays date will be used. Date format is ISO 8601 (YYYY-MM-DD)'
@@ -1011,7 +1011,7 @@ definitions:
     properties:
       id:
         description: "The relationship type identifier"
-        type: integer
+        type: string
         example: 123
       name_a_b:
         description: "The name of the relationship from the perspective of entity a."
@@ -1051,7 +1051,7 @@ definitions:
         example: 0
       count:
         description: "Total number of times the relationship type has been used for a relationship."
-        type: integer
+        type: string
         example: 1
   RelationshipType_FirmStep_Simple_Audit_Request:
     description: 'A relationship type object with only audit information used for toggling a relationship type active status.'
@@ -1129,7 +1129,7 @@ definitions:
       - "status_code"
     properties:
       status_code:
-        type: "integer"
+        type: string
         description: 'The HTTP status relating to the error e.g. 400'
         example: 400
       status_message:
