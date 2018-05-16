@@ -424,54 +424,102 @@ definitions:
         example: 'Individual'
       phone_numbers:
         type: string
+        description: "CSV of all known phone numbers"
+        example: "02080000000,07957000000"
       phone_type_ids:
         type: string
+        description: "CSV of ids for the phone number types"
+        example: "3,4"
       birth_date:
         type: string
+        description: "Date of birth in YYYY-MM-DD format"
+        example: "2016-12-29"
       prefix_id:
         type: string
+        description: "CSV of prefix ids associated with names"
+        example: "3,3"
       gender_id:
         type: string
+        description: "Id associated with contacts gender"
+        example: "2"
       address_house:
         type: string
+        description: "CSV of all house numbers associated with contact "
+        example: "15,22"
       address_postcode:
         maxLength: 9
         minLength: 1
         type: string
+        description: "CSV of all post codes associated with the contact"
+        example: "AB12 3CD,EC2A 2DT"
       address_street:
         type: string
+        description:
+        example:
       address_town:
         type: string
+        description:
+        example:
       address_county:
         type: string
+        description:
+        example:
       address_locality:
         type: string
+        description:
+        example:
       address_country:
         type: string
+        description:
+        example:
       address_ward:
         type: string
+        description:
+        example:
       address_uprn:
         type: string
+        description:
+        example:
       address_geo_code_1:
         type: string
+        description:
+        example:
       address_geo_code_2:
         type: string
+        description:
+        example:
       address_start_date:
         type: string
+        description:
+        example:
       address_end_date:
         type: string
+        description:
+        example:
       address_ids:
         type: string
+        description:
+        example:
       location_type_id:
         type: string
+        description:
+        example:
       preferred_contact_method:
         type: string
+        description:
+        example:
       consent_to_share:
         type: string
+        description:
+        example:
       ucrn:
         type: string
+        description:
+        example:
       csa:
         type: string
+        description:
+        example:
   Audit_FirmStep_Response:
     description: 'An audit object for a FirmStep contact.'
     required:
