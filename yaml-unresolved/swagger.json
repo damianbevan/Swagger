@@ -454,72 +454,72 @@ definitions:
         example: "AB12 3CD,EC2A 2DT"
       address_street:
         type: string
-        description:
-        example:
+        description: "CSV of all streets associated with contact"
+        example: "Worship street,Liverpool Street"
       address_town:
         type: string
-        description:
-        example:
+        description: "CSV of all towns associated with contact"
+        example: "London,London"
       address_county:
         type: string
-        description:
-        example:
+        description: "CSV of all counties associated with contact"
+        example: "Greater London,Greater London"
       address_locality:
         type: string
-        description:
-        example:
+        description: "CSV of all localities associated with contact"
+        example: "London,London"
       address_country:
         type: string
-        description:
-        example:
+        description: "CSV of db ids for the countries associated with contact"
+        example: "225,225"
       address_ward:
         type: string
-        description:
-        example:
+        description: "CSV of all wards  associated with contact"
+        example: "Ward,Ward"
       address_uprn:
         type: string
-        description:
-        example:
+        description: "CSV of all uprns associated with contact"
+        example: "1001,1002"
       address_geo_code_1:
         type: string
-        description:
-        example:
+        description: "CSV of latitudes associated with address"
+        example: "0.00000000,0.00000000"
       address_geo_code_2:
         type: string
-        description:
-        example:
+        description: "CSV of longitudes associated with address"
+        example: "0.00000000,0.00000000"
       address_start_date:
         type: string
-        description:
-        example:
+        description: "CSV of move in dates for addresses in YYYY-MM-DD format"
+        example: "2008-12-29,2017-12-28"
       address_end_date:
         type: string
-        description:
-        example:
-      address_ids:
+        description: "CSV of move out dates for addresses in YYYY-mm-dd format"
+        example: "2017-12-28,"
+      address_ids: 
         type: string
-        description:
-        example:
+        description: "CSV of db ids for all addresses associated with contact"
+        example: "0,1"
       location_type_id:
         type: string
-        description:
-        example:
+        description: "CSV of db ids for all addresses associated with contact"
+        example: "1,2"
       preferred_contact_method:
         type: string
-        description:
-        example:
+        description: "Id for preferred contact method"
+        example: "0"
       consent_to_share:
         type: string
-        description:
-        example:
+        description: "Boolean. Whether consent to share personal information was given"
+        example: "0"
       ucrn:
         type: string
-        description:
-        example:
+        description: "Unique customer identifier"
+        example: "AA123456789"
       csa:
         type: string
-        description:
-        example:
+        description: "Boolean. Identifies contact as a Customer Service Agent"
+        example: "1"
   Audit_FirmStep_Response:
     description: 'An audit object for a FirmStep contact.'
     required:
