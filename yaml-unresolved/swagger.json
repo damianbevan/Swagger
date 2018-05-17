@@ -168,18 +168,18 @@ paths:
       parameters:
         - name: ucrn
           in: query
-          description: The FirmStep contacts Unique Customer Reference Number (UCRN).
+          description: "The FirmStep contacts Unique Customer Reference Number (UCRN)."
           required: true
           type: string
       responses:
         '200':
-          description: An array containing zero or more audit records for the contact. If no records are found then an empty array will be returned.
+          description: "An array containing zero or more audit records for the contact. If no records are found then an empty array will be returned."
           schema:
             type: array
             items:
               $ref: '#/definitions/Audit_FirmStep_Response'
         default:
-          description: A client (4xx) or server (5xx) error has occured. Details of the error are returned within the ErrorResponse object.
+          description: "A client (4xx) or server (5xx) error has occured. Details of the error are returned within the ErrorResponse object."
           schema:
             $ref: '#/definitions/ErrorResponse'
   /api/v1/published/FirmstepRelationships:
@@ -200,13 +200,13 @@ paths:
           type: string
       responses:
         '200':
-          description: An array containing zero or more relationship records for the contact. If no records are found then an empty array will be returned.
+          description: "An array containing zero or more relationship records for the contact. If no records are found then an empty array will be returned."
           schema:
             type: array
             items:
               $ref: '#/definitions/Relationship_FirmStep_Response'
         default:
-          description: A client (4xx) or server (5xx) error has occured. Details of the error are returned within the ErrorResponse object.
+          description: "A client (4xx) or server (5xx) error has occured. Details of the error are returned within the ErrorResponse object."
           schema:
             $ref: '#/definitions/ErrorResponse'
     post:
@@ -232,7 +232,7 @@ paths:
           schema:
             $ref: '#/definitions/Relationship_FirmStep_Simple_Response'
         default:
-          description: A client (4xx) or server (5xx) error has occured. Details of the error are returned within the ErrorResponse object.
+          description: "A client (4xx) or server (5xx) error has occured. Details of the error are returned within the ErrorResponse object."
           schema:
             $ref: '#/definitions/ErrorResponse'
   /api/v1/published/FirmstepRelationships/{relationship_id}:
