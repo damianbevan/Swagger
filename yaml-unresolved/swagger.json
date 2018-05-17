@@ -389,7 +389,7 @@ paths:
             $ref: '#/definitions/ErrorResponse'
 definitions:
   Person_Firmstep:
-    description: 'A Firmstep Person object for the perpose of creating, updating, getting and deleting a person.'
+    description: 'A Firmstep Person object for the perpose of creating, updating, getting and deleting a person. TBC - Some of these fields are not actually used/stored by People Directory. Need to review and update the descriptions and set example to null where they are not being used.'
     type: object
     properties:
       customerName:
