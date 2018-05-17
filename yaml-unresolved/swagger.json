@@ -995,7 +995,7 @@ definitions:
           - a_b
           - b_a
       start_date:
-        description: "The start date of the relationship. If a value was not specified on creation then the value will be the date the relationship was created."
+        description: "The start date of the relationship. If a value was not specified on creation then the value will be the date the relationship was created. Date format is ISO 8601 (YYYY-MM-DD)"
         type: string
         example: "2018-01-28"
   Relationship_FirmStep_Simple_Response:
