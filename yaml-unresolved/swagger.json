@@ -1160,6 +1160,9 @@ definitions:
   RelationshipType_FirmStep_Audit_Request:
     description: 'A relationship type object with audit information used for creating and updating relationship types.'
     required:
+      - name_a_b
+      - name_b_a
+      - description
       - contact_type_a
       - contact_type_b
     type: object
